@@ -1,0 +1,55 @@
+Log created: 2024-10-17 16:12:10
+Type: backup
+[2024-10-17 16:12:11][notice]Start backing up.
+[2024-10-17 16:12:11][notice]server info fcgi:Off max execution time: 300 wp version:6.6.2 php version:8.3.1 db version:5.7.24 php ini:safe_mode: memory_limit:256M memory_get_usage:50,56 Mo memory_get_peak_usage:51,38 Mo extensions:PDO enabled curl enabled zlib enabled   is_multisite:0
+[2024-10-17 16:12:11][notice]Prepare to backup backup_db files.
+[2024-10-17 16:12:11][notice]Start exporting database.
+[2024-10-17 16:12:11][notice]Preparing to dump table wp_links
+[2024-10-17 16:12:11][notice]Preparing to dump table wp_term_relationships
+[2024-10-17 16:12:11][notice]Preparing to dump table wp_commentmeta
+[2024-10-17 16:12:11][notice]Preparing to dump table wp_postmeta
+[2024-10-17 16:12:11][notice]Preparing to dump table wp_term_taxonomy
+[2024-10-17 16:12:11][notice]Preparing to dump table wp_termmeta
+[2024-10-17 16:12:11][notice]Preparing to dump table wp_terms
+[2024-10-17 16:12:11][notice]Preparing to dump table wp_usermeta
+[2024-10-17 16:12:11][notice]Preparing to dump table wp_users
+[2024-10-17 16:12:11][notice]Preparing to dump table wp_comments
+[2024-10-17 16:12:11][notice]Preparing to dump table wp_posts
+[2024-10-17 16:12:11][notice]Preparing to dump table wp_options
+[2024-10-17 16:12:11][notice]Exporting database finished.
+[2024-10-17 16:12:11][notice]Start compressing database
+[2024-10-17 16:12:11][notice]Prepare to zip file. file: localhost_portfolio.mathisliegeon.fr_wpvivid-337b690dc1817_2024-10-17-16-12_backup_db.sql
+[2024-10-17 16:12:12][notice]Adding zip files completed.localhost_portfolio.mathisliegeon.fr_wpvivid-337b690dc1817_2024-10-17-16-12_backup_db.part001.zip, filesize: 157,10 Ko
+[2024-10-17 16:12:12][notice]Compressing database completed
+[2024-10-17 16:12:12][notice]Backing up backup_db completed.
+[2024-10-17 16:12:12][notice]Prepare to backup backup_themes files.
+[2024-10-17 16:12:12][notice]Compressing zip file:localhost_portfolio.mathisliegeon.fr_wpvivid-337b690dc1817_2024-10-17-16-12_backup_themes.part001.zip index:8
+[2024-10-17 16:12:12][notice]Compressing zip file:localhost_portfolio.mathisliegeon.fr_wpvivid-337b690dc1817_2024-10-17-16-12_backup_themes.part001.zip success. index:8 file size:2,66 Mo
+[2024-10-17 16:12:12][notice]Backing up backup_themes completed.
+[2024-10-17 16:12:12][notice]Prepare to backup backup_plugin files.
+[2024-10-17 16:12:14][notice]Compressing zip file:localhost_portfolio.mathisliegeon.fr_wpvivid-337b690dc1817_2024-10-17-16-12_backup_plugin.part001.zip index:1875
+[2024-10-17 16:12:22][notice]Compressing zip file:localhost_portfolio.mathisliegeon.fr_wpvivid-337b690dc1817_2024-10-17-16-12_backup_plugin.part001.zip success. index:1875 file size:9,89 Mo
+[2024-10-17 16:12:22][notice]Backing up backup_plugin completed.
+[2024-10-17 16:12:22][notice]Prepare to backup backup_uploads files.
+[2024-10-17 16:12:22][notice]Backing up backup_uploads completed.
+[2024-10-17 16:12:22][notice]Prepare to backup backup_content files.
+[2024-10-17 16:12:22][notice]Compressing zip file:localhost_portfolio.mathisliegeon.fr_wpvivid-337b690dc1817_2024-10-17-16-12_backup_content.part001.zip index:119
+[2024-10-17 16:12:23][notice]Compressing zip file:localhost_portfolio.mathisliegeon.fr_wpvivid-337b690dc1817_2024-10-17-16-12_backup_content.part001.zip success. index:119 file size:1,46 Mo
+[2024-10-17 16:12:23][notice]Backing up backup_content completed.
+[2024-10-17 16:12:23][notice]Prepare to backup backup_core files.
+[2024-10-17 16:12:25][notice]Compressing zip file:localhost_portfolio.mathisliegeon.fr_wpvivid-337b690dc1817_2024-10-17-16-12_backup_core.part001.zip index:2678
+[2024-10-17 16:13:37][notice]Compressing zip file:localhost_portfolio.mathisliegeon.fr_wpvivid-337b690dc1817_2024-10-17-16-12_backup_core.part001.zip success. index:2678 file size:13,99 Mo
+[2024-10-17 16:13:37][notice]Backing up backup_core completed.
+[2024-10-17 16:13:37][notice]Prepare to backup backup_merge files.
+[2024-10-17 16:13:37][notice]Prepare to zip file. file: localhost_portfolio.mathisliegeon.fr_wpvivid-337b690dc1817_2024-10-17-16-12_backup_db.zip
+[2024-10-17 16:13:37][notice]Adding zip files completed.localhost_portfolio.mathisliegeon.fr_wpvivid-337b690dc1817_2024-10-17-16-12_backup_all.part001.zip, filesize: 157,56 Ko
+[2024-10-17 16:13:37][notice]Prepare to zip file. file: localhost_portfolio.mathisliegeon.fr_wpvivid-337b690dc1817_2024-10-17-16-12_backup_themes.zip
+[2024-10-17 16:13:37][notice]Adding zip files completed.localhost_portfolio.mathisliegeon.fr_wpvivid-337b690dc1817_2024-10-17-16-12_backup_all.part001.zip, filesize: 2,81 Mo
+[2024-10-17 16:13:37][notice]Prepare to zip file. file: localhost_portfolio.mathisliegeon.fr_wpvivid-337b690dc1817_2024-10-17-16-12_backup_plugin.zip
+[2024-10-17 16:13:38][notice]Adding zip files completed.localhost_portfolio.mathisliegeon.fr_wpvivid-337b690dc1817_2024-10-17-16-12_backup_all.part001.zip, filesize: 12,37 Mo
+[2024-10-17 16:13:38][notice]Prepare to zip file. file: localhost_portfolio.mathisliegeon.fr_wpvivid-337b690dc1817_2024-10-17-16-12_backup_content.zip
+[2024-10-17 16:13:38][notice]Adding zip files completed.localhost_portfolio.mathisliegeon.fr_wpvivid-337b690dc1817_2024-10-17-16-12_backup_all.part001.zip, filesize: 13,81 Mo
+[2024-10-17 16:13:38][notice]Prepare to zip file. file: localhost_portfolio.mathisliegeon.fr_wpvivid-337b690dc1817_2024-10-17-16-12_backup_core.zip
+[2024-10-17 16:13:39][notice]Adding zip files completed.localhost_portfolio.mathisliegeon.fr_wpvivid-337b690dc1817_2024-10-17-16-12_backup_all.part001.zip, filesize: 27,42 Mo
+[2024-10-17 16:13:40][notice]Backing up backup_merge completed.
+[2024-10-17 16:13:40][notice]Backup completed.

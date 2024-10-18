@@ -1,0 +1,62 @@
+/* -------- CUSTOM STYLES -------- */
+:root {
+    /* Colors */
+    --primary: #2EB2DB;
+    --background: #F0EEE3;
+    --black: #000;
+
+    /* Fonts */
+    /* main */
+    --main-title-font: '';
+    --main-title-size: 2rem;
+    --secondary-title-font: '';
+    --secondary-title-size: 1.5rem;
+    --base: 1rem;
+
+    /* footer */
+    --footer-links-font: '';
+    --footer-links-size: 1rem;
+}
+
+
+/* -------- NORMALIZE -------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-y: hidden;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+p {
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+textarea {
+    resize: none;
+}
