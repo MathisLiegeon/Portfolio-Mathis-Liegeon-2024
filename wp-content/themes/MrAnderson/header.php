@@ -9,23 +9,33 @@
   </head>
 
   <body>
-      <header class="header-menu">
-      <div class="header-burger" id="burger">
+      <header class="header">
+        <div class="header-wrapper">
+          <div>
+            <p>LOGO</p>
+          </div>
+          <div class="header-burger" id="burger">
             <span></span>
             <span></span>
             <span></span>
+          </div>
         </div>
 
-        <nav class="header-wrapper" id="mobile-menu">
+        <nav class="header-menu" id="header-menu">
           <?php
             wp_nav_menu(array(
                 'theme_location' => 'header-menu',
                 'container' => false,
-                'menu_class' => 'header-menu'
+                'menu_class' => 'header-main-nav'
             ));
           ?>
+
+          <div class="footer">
+          <p>© 2023 Weedwey Corporation. All rights reserved.</p>
+          </div>
         </nav>
-      </header>
+
+  </header>
 
       <!-- <script>
         document.addEventListener('DOMContentLoaded', function() {

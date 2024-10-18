@@ -1,9 +1,10 @@
 // HEADER CONFIGURATION
 document.addEventListener('DOMContentLoaded', function() {
     var burger = document.getElementById('burger');
-    var mobileMenu = document.getElementById('mobile-menu');
+    var headerMenu = document.getElementById('header-menu');
 
     burger.addEventListener('click', function() {
-        mobileMenu.classList.toggle('open');
+        headerMenu.classList.toggle('open');
+        burger.classList.toggle('open');
     });
 });

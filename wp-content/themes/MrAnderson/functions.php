@@ -13,7 +13,7 @@ function enqueue_custom_scripts() {
 add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
 
 // HIDE ADMIN BAR
-// function hide_admin_bar() {
-//   return false;
-// }
-// add_filter('show_admin_bar', 'hide_admin_bar');
+function hide_admin_bar() {
+  return false;
+}
+add_filter('show_admin_bar', 'hide_admin_bar');

@@ -24,8 +24,11 @@
 *::before,
 *::after {
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-    overflow-y: hidden;
+}
+
+body {
+    margin: 0;
+    background-color: var(--background);
 }
 
 ul {
