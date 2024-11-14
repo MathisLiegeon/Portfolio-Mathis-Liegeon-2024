@@ -23,6 +23,7 @@ class WPvivid_Google_Service_Drive_FileList extends WPvivid_Google_Collection
   public $incompleteSearch;
   public $kind;
   public $nextPageToken;
+  public $files;
 
   /**
    * @param WPvivid_Google_Service_Drive_DriveFile

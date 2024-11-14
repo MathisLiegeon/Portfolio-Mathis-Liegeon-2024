@@ -1,4 +1,10 @@
 <?php
+// Implement a way to log things to the console in php
+function console_log($data) {
+  echo '<script>';
+  echo 'console.log('. json_encode($data) .')';
+  echo '</script>';
+}
 
 // ADD MENUS
 function register_my_menu() {
@@ -8,7 +14,7 @@ add_action( 'init', 'register_my_menu' );
 
 // ADD JAVASCRIPT
 function enqueue_custom_scripts() {
-  wp_enqueue_script('main-js', get_template_directory_uri() . '/assets/js/main.js', array(), null, true);
+  wp_enqueue_script('main-js', get_template_directory_uri() . '/assets/js/app.js', array(), null, true);
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
 

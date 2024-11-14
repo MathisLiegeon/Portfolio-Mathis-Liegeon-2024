@@ -78,7 +78,14 @@ class Wpvivid_Google_drive extends WPvivid_Remote
             {
                 if($_GET['action']=='wpvivid_google_drive_auth')
                 {
-                    $auth_id = uniqid('wpvivid-auth-');
+                    $check=current_user_can('manage_options');
+                    if(!$check)
+                    {
+                        return;
+                    }
+
+                    $rand_id = substr(md5(time().rand()), 0,13);
+                    $auth_id = 'wpvivid-auth-'.$rand_id;
                     $res = $this -> compare_php_version();
                     if($res['result'] == WPVIVID_FAILED){
                         echo '<div class="notice notice-warning is-dismissible"><p>'.esc_html($res['error']).'</p></div>';
@@ -94,7 +101,7 @@ class Wpvivid_Google_drive extends WPvivid_Remote
                         $client->setState(admin_url() . 'admin.php?page=WPvivid' . '&action=wpvivid_google_drive_finish_auth&main_tab=storage&sub_tab=googledrive&sub_page=storage_account_google_drive&auth_id='.$auth_id);
                         $auth_url = $client->createAuthUrl();
                         $remote_options['auth_id']=$auth_id;
-                        update_option('wpvivid_tmp_remote_options',$remote_options,'no');
+                        set_transient('google_drive_auth_id', $remote_options, 900);
                         header('Location: ' . filter_var($auth_url, FILTER_SANITIZE_URL));
                     }
                     catch (Exception $e){
@@ -113,6 +120,17 @@ class Wpvivid_Google_drive extends WPvivid_Remote
                 }
                 else if($_GET['action']=='wpvivid_google_drive_finish_auth')
                 {
+                    $tmp_options = get_transient('google_drive_auth_id');
+                    if($tmp_options === false)
+                    {
+                        return;
+                    }
+                    else if($tmp_options['auth_id'] !== $_GET['auth_id'])
+                    {
+                        delete_transient('google_drive_auth_id');
+                        return;
+                    }
+
                     try
                     {
                         if(isset($_GET['error']))
@@ -133,44 +151,29 @@ class Wpvivid_Google_drive extends WPvivid_Remote
                             }
                         }
 
-                        $tmp_options=get_option('wpvivid_tmp_remote_options',false);
-                        if($tmp_options===false)
+                        if(empty($_POST['refresh_token']))
                         {
-                            return;
-                        }
-                        else
-                        {
-                            if($tmp_options['auth_id']===$_GET['auth_id'])
+                            if(empty($tmp_options['token']['refresh_token']))
                             {
-                                if(empty($_POST['refresh_token']))
-                                {
-                                    if(empty($tmp_options['token']['refresh_token']))
-                                    {
-                                        $err = 'No refresh token was received from Google, which means that you entered client secret incorrectly, or that you did not re-authenticated yet after you corrected it. Please authenticate again.';
-                                        header('Location: '.admin_url().'admin.php?page='.WPVIVID_PLUGIN_SLUG.'&action=wpvivid_google_drive&main_tab=storage&sub_tab=googledrive&sub_page=storage_account_google_drive&result=error&resp_msg='.$err);
+                                $err = 'No refresh token was received from Google, which means that you entered client secret incorrectly, or that you did not re-authenticated yet after you corrected it. Please authenticate again.';
+                                header('Location: '.admin_url().'admin.php?page='.WPVIVID_PLUGIN_SLUG.'&action=wpvivid_google_drive&main_tab=storage&sub_tab=googledrive&sub_page=storage_account_google_drive&result=error&resp_msg='.$err);
 
-                                        return;
-                                    }
-                                }
-                                else
-                                {
-                                    $tmp_options['type'] = WPVIVID_REMOTE_GOOGLEDRIVE;
-                                    $tmp_options['token']['access_token'] = base64_encode(sanitize_text_field($_POST['access_token']));
-                                    $tmp_options['token']['expires_in'] = sanitize_text_field($_POST['expires_in']);
-                                    $tmp_options['token']['refresh_token'] = base64_encode(sanitize_text_field($_POST['refresh_token']));
-                                    $tmp_options['token']['scope'] = sanitize_text_field($_POST['scope']);
-                                    $tmp_options['token']['token_type'] = sanitize_text_field($_POST['token_type']);
-                                    $tmp_options['token']['created'] = sanitize_text_field($_POST['created']);
-                                    $tmp_options['is_encrypt'] = 1;
-                                    update_option('wpvivid_tmp_remote_options',$tmp_options,'no');
-                                }
-                                $this->add_remote=true;
-                            }
-                            else
-                            {
                                 return;
                             }
                         }
+                        else
+                        {
+                            $tmp_options['type'] = WPVIVID_REMOTE_GOOGLEDRIVE;
+                            $tmp_options['token']['access_token'] = base64_encode(sanitize_text_field($_POST['access_token']));
+                            $tmp_options['token']['expires_in'] = sanitize_text_field($_POST['expires_in']);
+                            $tmp_options['token']['refresh_token'] = base64_encode(sanitize_text_field($_POST['refresh_token']));
+                            $tmp_options['token']['scope'] = sanitize_text_field($_POST['scope']);
+                            $tmp_options['token']['token_type'] = sanitize_text_field($_POST['token_type']);
+                            $tmp_options['token']['created'] = sanitize_text_field($_POST['created']);
+                            $tmp_options['is_encrypt'] = 1;
+                            set_transient('google_drive_auth_id', $tmp_options, 900);
+                        }
+                        $this->add_remote=true;
                     }
                     catch (Exception $e){
                         echo '<div class="notice notice-error"><p>'.esc_html($e->getMessage()).'</p></div>';
@@ -1120,6 +1123,8 @@ class Wpvivid_Google_drive extends WPvivid_Remote
 
     public function delete_exist_file($folder_id,$file,$service)
     {
+        global $wpvivid_plugin;
+
         $client=$this->get_client();
         if($client['result'] == WPVIVID_FAILED)
             return false;
@@ -1130,23 +1135,29 @@ class Wpvivid_Google_drive extends WPvivid_Remote
             return false;
         }
 
-        $delete_files = $service->files->listFiles(array(
-            'q' => "name='".$file."' and '".$folder_id."' in parents",
-            'fields' => 'nextPageToken, files(id, name,mimeType)',
-        ));
-
-        if(sizeof($delete_files->getFiles())==0)
-        {
-            return true;
-        }
-        else
-        {
-            foreach ($delete_files->getFiles() as $file_google_drive)
+        try{
+            $delete_files = $service->files->listFiles(array(
+                'q' => "name='".$file."' and '".$folder_id."' in parents",
+                'fields' => 'nextPageToken, files(id, name,mimeType)',
+            ));
+            if(sizeof($delete_files->getFiles())==0)
             {
-                $file_id=$file_google_drive->getId();
-                $service->files->delete($file_id);
                 return true;
             }
+            else
+            {
+                foreach ($delete_files->getFiles() as $file_google_drive)
+                {
+                    $file_id=$file_google_drive->getId();
+                    $service->files->delete($file_id);
+                    return true;
+                }
+            }
+        }
+        catch(Exception $error)
+        {
+            $wpvivid_plugin->wpvivid_log->WriteLog('listFiles exception.','notice');
+            return true;
         }
 
         return false;
@@ -1242,8 +1253,12 @@ class Wpvivid_Google_drive extends WPvivid_Remote
                 die();
             }
 
-            $tmp_remote_options =get_option('wpvivid_tmp_remote_options',array());
-            delete_option('wpvivid_tmp_remote_options');
+            $tmp_remote_options = get_transient('google_drive_auth_id');
+            if($tmp_remote_options === false)
+            {
+                die();
+            }
+            delete_transient('google_drive_auth_id');
             if(empty($tmp_remote_options)||$tmp_remote_options['type']!==WPVIVID_REMOTE_GOOGLEDRIVE)
             {
                 die();

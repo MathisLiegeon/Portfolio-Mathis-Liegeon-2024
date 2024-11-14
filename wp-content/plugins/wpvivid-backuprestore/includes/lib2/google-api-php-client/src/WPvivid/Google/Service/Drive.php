@@ -65,7 +65,8 @@ class WPvivid_Google_Service_Drive extends WPvivid_Google_Service
   public $replies;
   public $revisions;
   public $teamdrives;
-  
+  public $serviceName;
+
   /**
    * Constructs the internal representation of the Drive service.
    *

@@ -20,6 +20,9 @@
 
 
 /* -------- NORMALIZE -------- */
+img {
+    width: 100px;
+}
 *,
 *::before,
 *::after {
@@ -29,6 +32,12 @@
 body {
     margin: 0;
     background-color: var(--background);
+    /* overflow-X: hidden; */
+}
+
+.body-wrapper {
+    padding-right: 100px;
+    padding-left: 100px;
 }
 
 ul {

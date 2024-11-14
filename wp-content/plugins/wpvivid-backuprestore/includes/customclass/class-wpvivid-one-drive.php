@@ -82,10 +82,16 @@ class WPvivid_one_drive extends WPvivid_Remote
             {
                 if($_GET['action']=='wpvivid_one_drive_auth')
                 {
+                    $check=current_user_can('manage_options');
+                    if(!$check)
+                    {
+                        return;
+                    }
                     try {
-                        $auth_id = uniqid('wpvivid-auth-');
+                        $rand_id = substr(md5(time().rand()), 0,13);
+                        $auth_id = 'wpvivid-auth-'.$rand_id;
                         $remote_options['auth_id']=$auth_id;
-                        update_option('wpvivid_tmp_remote_options',$remote_options,'no');
+                        set_transient('onedrive_auth_id', $remote_options, 900);
                         $url = 'https://login.microsoftonline.com/common/oauth2/v2.0/authorize'
                             . '?client_id=' . urlencode('37668be9-b55f-458f-b6a3-97e6f8aa10c9')
                             . '&scope=' . urlencode('offline_access files.readwrite.all')
@@ -102,6 +108,16 @@ class WPvivid_one_drive extends WPvivid_Remote
                 }
                 else if($_GET['action']=='wpvivid_one_drive_finish_auth')
                 {
+                    $tmp_options = get_transient('onedrive_auth_id');
+                    if($tmp_options === false)
+                    {
+                        return;
+                    }
+                    else if($tmp_options['auth_id'] !== $_GET['auth_id'])
+                    {
+                        delete_transient('onedrive_auth_id');
+                        return;
+                    }
                     try
                     {
                         if (isset($_GET['auth_error']))
@@ -123,41 +139,26 @@ class WPvivid_one_drive extends WPvivid_Remote
                             }
                         }
 
-                        $tmp_options=get_option('wpvivid_tmp_remote_options',false);
-                        if($tmp_options===false)
+                        if(empty($_POST['refresh_token']))
                         {
-                            return;
-                        }
-                        else
-                        {
-                            if($tmp_options['auth_id']===$_GET['auth_id'])
+                            if(empty($tmp_options['token']['refresh_token']))
                             {
-                                if(empty($_POST['refresh_token']))
-                                {
-                                    if(empty($tmp_options['token']['refresh_token']))
-                                    {
-                                        $err = 'No refresh token was received from OneDrive, which means that you entered client secret incorrectly, or that you did not re-authenticated yet after you corrected it. Please authenticate again.';
-                                        header('Location: ' . admin_url() . 'admin.php?page=' . WPVIVID_PLUGIN_SLUG . '&action=wpvivid_one_drive&result=error&resp_msg='.$err);
+                                $err = 'No refresh token was received from OneDrive, which means that you entered client secret incorrectly, or that you did not re-authenticated yet after you corrected it. Please authenticate again.';
+                                header('Location: ' . admin_url() . 'admin.php?page=' . WPVIVID_PLUGIN_SLUG . '&action=wpvivid_one_drive&result=error&resp_msg='.$err);
 
-                                        return;
-                                    }
-                                }
-                                else
-                                {
-                                    $tmp_options['type'] = WPVIVID_REMOTE_ONEDRIVE;
-                                    $tmp_options['token']['access_token']=base64_encode(sanitize_text_field($_POST['access_token']));
-                                    $tmp_options['token']['refresh_token']=base64_encode(sanitize_text_field($_POST['refresh_token']));
-                                    $tmp_options['token']['expires']=time()+$_POST['expires_in'];
-                                    $tmp_options['is_encrypt'] = 1;
-                                    update_option('wpvivid_tmp_remote_options',$tmp_options,'no');
-                                }
-                                $this->add_remote=true;
-                            }
-                            else
-                            {
                                 return;
                             }
                         }
+                        else
+                        {
+                            $tmp_options['type'] = WPVIVID_REMOTE_ONEDRIVE;
+                            $tmp_options['token']['access_token']=base64_encode(sanitize_text_field($_POST['access_token']));
+                            $tmp_options['token']['refresh_token']=base64_encode(sanitize_text_field($_POST['refresh_token']));
+                            $tmp_options['token']['expires']=time()+$_POST['expires_in'];
+                            $tmp_options['is_encrypt'] = 1;
+                            set_transient('onedrive_auth_id', $tmp_options, 900);
+                        }
+                        $this->add_remote=true;
                     }
                     catch (Exception $e){
                         echo '<div class="notice notice-error"><p>'.esc_html($e->getMessage()).'</p></div>';
@@ -1569,8 +1570,12 @@ class WPvivid_one_drive extends WPvivid_Remote
                 die();
             }
 
-            $tmp_remote_options =get_option('wpvivid_tmp_remote_options',array());
-            delete_option('wpvivid_tmp_remote_options');
+            $tmp_remote_options = get_transient('onedrive_auth_id');
+            if($tmp_remote_options === false)
+            {
+                die();
+            }
+            delete_transient('onedrive_auth_id');
             if(empty($tmp_remote_options)||$tmp_remote_options['type']!==WPVIVID_REMOTE_ONEDRIVE)
             {
                 die();
