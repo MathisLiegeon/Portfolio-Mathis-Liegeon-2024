@@ -151,12 +151,18 @@ get_header();
 <div class="cta">
     <div>
         <?php
-        // get_template_ârt (button)
+        get_template_part('components/button', null, array(
+            'url' => '#',
+            'text' => 'Mes projets'
+        ));
         ?>
     </div>
     <div>
         <?php
-        // get_template_ârt (button)
+        get_template_part('components/button', null, array(
+            'url' => '#',
+            'text' => 'Me contacter' 
+        ));
         ?>
     </div>
 </div>
