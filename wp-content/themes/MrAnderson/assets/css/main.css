@@ -1,75 +1,91 @@
 /* -------- CUSTOM STYLES -------- */
 :root {
-    /* Colors */
-    --primary: #2EB2DB;
-    --background: #F0EEE3;
-    --black: #000;
+  /* Colors */
+  --primary: #2eb2db;
+  --background: #f0eee3;
+  --black: #000;
 
-    /* Fonts */
-    /* main */
-    --main-title-font: '';
-    --main-title-size: 2rem;
-    --secondary-title-font: '';
-    --secondary-title-size: 1.5rem;
-    --base: 1rem;
+  /* Fonts */
+  /* main */
+  --base-font: "Fredoka", sans-serif;
+  --base-size: 1rem;
+  --base-weight: 100;
+  --main-title-font: "Italiana", sans-serif;
+  --main-title-size: 6rem;
+  --main-title-weight: 200;
+  --secondary-title-font: "";
+  --secondary-title-size: 1.5rem;
+  --tertiary-title-font: "League Gothic", sans-serif;;
+  --tertiary-title-size: 1.8rem;
+  --tertiary-title-weight: normal;
 
-    /* footer */
-    --footer-links-font: '';
-    --footer-links-size: 1rem;
+  /* footer */
+  --footer-links-font: "";
+  --footer-links-size: 1rem;
 }
-
 
 /* -------- NORMALIZE -------- */
-img {
-    width: 100px;
-}
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    background-color: var(--background);
-    /* overflow-X: hidden; */
+  margin: 0;
+  background-color: var(--background);
+  /* overflow-X: hidden; */
 }
 
 .body-wrapper {
-    padding-top: 100px;
-    padding-right: 100px;
-    padding-left: 100px;
+  padding-top: 100px;
+  padding-right: 100px;
+  padding-left: 100px;
 }
 
 ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 li {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 a {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
 
 p {
-    margin: 0;
+  margin: 0;
+  font-family: var(--base-font);
+  font-size: var(--base-size);
+  font-weight: var(--base-weight);
 }
 
 h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    /* margin: 0; */
+h2 {
+  font-family: var(--main-title-font);
+  color: var(--primary);
+  font-size: var(--main-title-size);
+  font-weight: var(--main-title-weight);
+  text-transform: uppercase;
+}
+h2 {
+    margin: .5rem;
+}
+
+h4 {
+    font-family: var(--tertiary-title-font);
+    font-size: var(--tertiary-title-size);
+    font-weight: var(--tertiary-title-size);
+    color: var(--primary);
+    margin: 0;
 }
 
 textarea {
-    resize: none;
+  resize: none;
 }

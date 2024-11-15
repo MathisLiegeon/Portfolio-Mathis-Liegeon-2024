@@ -65,13 +65,17 @@ get_header();
 </div>
 
 <div class="about">
-    <div>
+    <div class="about-content">
         <div>
-            <h2>à propos de moi</h2>
-            <p>Je m’appelle Mathis Liegeon, je suis étudiant au département MMI à l’IUT de Montbéliard. J’étudie le design, le développement et la communication. Mais ce que je préfère par-dessus tout, c’est la création et le design graphique. Je suis intéressé par les arts depuis des années et j’aime créer des visuels et explorer dans le but de trouver ma propre identité. Aussi, en complément du design j’aime le d”éveloppement.</p>
+            <h2 class="about-title">
+                <span>à propos </span>
+                <span>de moi</span>
+            </h2>
+            <p class="about-text">Je m’appelle Mathis Liegeon, je suis étudiant au département MMI à l’IUT de Montbéliard. J’étudie le design, le développement et la communication. Mais ce que je préfère par-dessus tout, c’est la création et le design graphique. Je suis intéressé par les arts depuis des années et j’aime créer des visuels et explorer dans le but de trouver ma propre identité. Aussi, en complément du design j’aime le d”éveloppement.</p>
         </div>
-        <div>
-            <h3>Je maitrise</h3>
+        <div class="about-skills">
+            <h4>Je maitrise</h4>
+            <div>
             <span>
                 <img src="<?php echo get_template_directory_uri();?>/assets/icons/icon_photoshop.svg" alt="Icone du logiciel photoshop">
                 <img src="<?php echo get_template_directory_uri();?>/assets/icons/icon_ilustrator.svg" alt="Icone du logiciel ilustrator">
@@ -83,16 +87,17 @@ get_header();
                 <img src="<?php echo get_template_directory_uri();?>/assets/icons/icon_vueJs.svg" alt="Icone de vueJs">
                 <img src="<?php echo get_template_directory_uri();?>/assets/icons/icon_tailwind.svg" alt="Icone de tailwind">
             </span>
+            </div>
         </div>
     </div>
-    <div>
+    <div class="about-img-container">
         <img class="about-img" src="<?php echo get_template_directory_uri();?>/assets/img/img_about.png" alt="Photo de Mathis Liegeon de dos">
     </div>
 </div>
 
 <div class="vision">
     <img src="<?php echo get_template_directory_uri();?>/assets/img/img_vision.webp" alt="Image d'illustration">
-    <div>
+    <div class="vision-content">
         <h2>Ma vision</h2>
         <p>J’aime penser que chacun a un talent, et qu’il doit seulement trouver la bonne manière de le faire ressortir pour l’utiliser, innover et créer.</p>
     </div>
@@ -101,7 +106,7 @@ get_header();
 <div class="passions">
     <div class="passions-header">
         <h2>Plus sur moi</h2>
-        <h2>et mes passions</h2>
+        <h2>& mes passions</h2>
     </div>
 
     <div class="game">
