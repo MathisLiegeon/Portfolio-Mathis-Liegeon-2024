@@ -348,3 +348,33 @@
   grid-row-start: 7;
   grid-row-end: 9;
 } */
+
+/* CAROUSSEL */
+.music {
+  width: 100%;
+}
+.music-header {
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.music-header h3{
+  margin-bottom: 10px;
+}
+.music-header span {
+  width: 50%;
+}
+.music-slider-wrapper {
+  width: 100%;
+}
+.music-slider {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  padding-left: 2rem;
+  overflow: scroll hidden;
+}
+
+.music-slider img {
+  width: 350px;
+}

@@ -45,6 +45,12 @@ body {
   overflow-x: hidden;
 
   border: 1px solid var(--primary);
+
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.body-wrapper::-webkit-scrollbar {
+  display: none;
 }
 
 ul {

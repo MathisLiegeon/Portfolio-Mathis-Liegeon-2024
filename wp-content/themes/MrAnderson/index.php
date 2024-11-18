@@ -181,25 +181,26 @@ get_header();
             <span>Auditeur de rap français depuis plusieurs années, certains albums m’ont marqué.</span>
             <span>C’est un des genres musicaux qui me parle le plus</span>
         </div>
-    </div>
-    <div class="music-slider-wrapper">
-        <div class="music-slider">
-            <img src="<?php echo get_template_directory_uri();?>/assets/img/img_music-1.webp" alt="">
-            <img src="<?php echo get_template_directory_uri();?>/assets/img/img_music-2.webp" alt="">
-            <img src="<?php echo get_template_directory_uri();?>/assets/img/img_music-3.webp" alt="">
-            <img src="<?php echo get_template_directory_uri();?>/assets/img/img_music-4.webp" alt="">
-            <img src="<?php echo get_template_directory_uri();?>/assets/img/img_music-5.webp" alt="">
-            <img src="<?php echo get_template_directory_uri();?>/assets/img/img_music-6.webp" alt="">
-            <img src="<?php echo get_template_directory_uri();?>/assets/img/img_music-7.webp" alt="">
-            <img src="<?php echo get_template_directory_uri();?>/assets/img/img_music-8.webp" alt="">
+
+        <div class="music-slider-wrapper">
+            <div class="music-slider">
+                <img src="<?php echo get_template_directory_uri();?>/assets/img/img_music-1.webp" alt="">
+                <img src="<?php echo get_template_directory_uri();?>/assets/img/img_music-2.webp" alt="">
+                <img src="<?php echo get_template_directory_uri();?>/assets/img/img_music-3.webp" alt="">
+                <img src="<?php echo get_template_directory_uri();?>/assets/img/img_music-4.webp" alt="">
+                <img src="<?php echo get_template_directory_uri();?>/assets/img/img_music-5.webp" alt="">
+                <img src="<?php echo get_template_directory_uri();?>/assets/img/img_music-6.webp" alt="">
+                <img src="<?php echo get_template_directory_uri();?>/assets/img/img_music-7.webp" alt="">
+                <img src="<?php echo get_template_directory_uri();?>/assets/img/img_music-8.webp" alt="">
+            </div>
+            <div class="music-slider-controller">
+                <span class="music-button"><</span>
+                <span class="music-button">></span>
+                <span class="music-number">1/8</span>
+                <span class="music-bar"></span>
+            </div>
         </div>
-        <div class="music-slider-controller">
-            <span class="music-button"><</span>
-            <span class="music-button">></span>
-            <span class="music-number">1/8</span>
-            <span class="music-bar"></span>
-        </div>
-    </div>
+
 </div>
 
 <div class="cta">
