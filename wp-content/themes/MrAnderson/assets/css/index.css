@@ -146,13 +146,17 @@
 }
 
 /* GAME */
+.game {
+  width: 100%;
+}
 .game-main-title {
   margin-top: 10rem;
 }
 .game-grid {
   display: grid;
+  width: 100%;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(8, minmax(230px, 230px));
+  grid-template-rows: repeat(8, minmax(170px, 170px));
 
   padding: 0 0 4rem 0;
   border-right: 1px solid var(--primary);
@@ -186,23 +190,100 @@
 .game-wrap {
   display: flex;
   flex-direction: column;
+  height: 100%;
+}
+.game-grid-item:has(.game-wrap) {
+  grid-row: span 2;
+}
+
+.game-wrap > img {
+  z-index: 2;
 }
 .game-wrap > h5 {
   position: relative;
+  text-transform: uppercase;
+  color: var(--primary);
+  padding: 2px;
 }
 .game-wrap > h5::after {
   position: absolute;
   content: "";
-  width: 200svw;
   height: 100%;
   top: 0;
-  left: -100svw;
   border: 1px solid var(--primary);
   border-left: 0;
   border-right: 0;
 }
+.game-wrap-1 > h5::after {
+  width: 200svw;
+  left: -100svw;
+}
+.game-wrap-3 > h5::after {
+  width: 100svw;
+  left: -100%;
+}
+.game-wrap-4 > h5::after {
+  width: 100svw;
+  right: 0;
+}
+.game-wrap-2 {
+  transform: translateY(-1px);
+}
 
 /* display grid */
+.game-grid-item {
+  /* background-color: rgba(0, 0, 0, 0.2);
+  margin: 0.5rem; */
+  border: 0.5px solid var(--primary);
+}
+
+.game-grid-item:not(:has(span img)) {
+  padding: 0.5rem;
+}
+
+.game-grid-item-2 {
+  border-bottom: 0;
+  border-right: 0;
+}
+.game-grid-item-3 {
+  border-bottom: 0;
+  border-left: 0;
+}
+.game-grid-item-6 {
+  border-top: 0;
+  border-right: 0;
+}
+.game-grid-item-7 {
+  border-top: 0;
+  border-left: 0;
+}
+.game-grid-item-11,
+.game-grid-item-14 {
+  border-right: 0;
+}
+.game-grid-item-12,
+.game-grid-item-15 {
+  border-left: 0;
+}
+.game-grid-item-1,
+.game-grid-item-20,
+.game-grid-item-24,
+.game-grid-item-25,
+.game-grid-item-26 {
+  border-bottom: 0;
+}
+.game-grid-item-5,
+.game-grid-item-23,
+.game-grid-item-28,
+.game-grid-item-29,
+.game-grid-item-30 {
+  border-top: 0;
+}
+
+.game-grid-item-9 {
+  overflow: hidden;
+}
+
 /* .game-text-1 {
   grid-row-start: 1;
   grid-row-end: 3;

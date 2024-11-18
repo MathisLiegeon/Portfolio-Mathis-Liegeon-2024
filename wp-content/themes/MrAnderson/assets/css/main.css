@@ -100,6 +100,9 @@ h4 {
 
 h5 {
   margin: 0;
+  font-family: 'league gothic', sans-serif;
+  font-weight: lighter;
+  font-size: 1.05rem;
 }
 
 textarea {
