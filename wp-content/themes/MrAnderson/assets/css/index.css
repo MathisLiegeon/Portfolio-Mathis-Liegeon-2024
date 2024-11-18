@@ -1,11 +1,9 @@
 /* HERO */
 .hero {
-  transform: translateY(-100px);
-
   width: 100%;
-  height: 100svh;
-  display: grid;
-  place-content: center;
+  height: calc(100svh - 100px);
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
@@ -74,12 +72,12 @@
   display: flex;
   gap: 1rem;
 }
+.about-skills > div * * {
+  width: 48px;
+}
 
 /* VISION */
 .vision {
-  /* display: grid;
-  place-content: center;
-  align-items: center; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -110,8 +108,8 @@
   z-index: -1;
   border: 1px solid var(--primary);
   border-radius: 100%;
-  width: 900px;
-  height: 900px;
+  width: 50rem;
+  height: 50rem;
 }
 
 .vision-content > h2 {
@@ -123,7 +121,6 @@
   font-size: 1.3rem;
   font-weight: lighter;
 }
-
 
 /* PASSIONS */
 /* main */
@@ -147,3 +144,126 @@
 .passions-header > *:last-child {
   border-top: 0;
 }
+
+/* GAME */
+.game-main-title {
+  margin-top: 10rem;
+}
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(8, minmax(230px, 230px));
+
+  padding: 0 0 4rem 0;
+  border-right: 1px solid var(--primary);
+
+  position: relative;
+}
+.game-grid::after {
+  position: absolute;
+  left: -100px;
+  content: "";
+  width: 100svw;
+  height: 100%;
+  border: 1px solid var(--primary);
+  border-left: 0;
+}
+.game-grid::before {
+  position: absolute;
+  right: -1rem;
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-right: 1px solid var(--primary);
+}
+
+.game-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.game-wrap {
+  display: flex;
+  flex-direction: column;
+}
+.game-wrap > h5 {
+  position: relative;
+}
+.game-wrap > h5::after {
+  position: absolute;
+  content: "";
+  width: 200svw;
+  height: 100%;
+  top: 0;
+  left: -100svw;
+  border: 1px solid var(--primary);
+  border-left: 0;
+  border-right: 0;
+}
+
+/* display grid */
+/* .game-text-1 {
+  grid-row-start: 1;
+  grid-row-end: 3;
+  height: 130%;
+
+  border-right: 1px solid var(--primary);
+}
+
+.game-text-2 {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+.game-wrap-1 {
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.game-wrap-2 {
+  grid-row-start: 3;
+  grid-row-end: 5;
+  overflow: hidden;
+}
+
+.game-text-3 {
+  grid-row-start: 4;
+  grid-row-end: 5;
+
+  position: relative;
+}
+.game-text-3::after {
+  content: "";
+  width: 100svw;
+  height: 100%;
+  grid-row-start: 4;
+  grid-row-end: 5;
+  grid-column-start: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 1px solid var(--primary);
+  border-left: 0;
+}
+
+.game-wrap-3 {
+  grid-row-start: 5;
+  grid-row-end: 7;
+  grid-column-start: 3;
+  grid-column-end: 4;
+}
+
+.game-text-4 {
+  grid-row-start: 6;
+  grid-row-end: 7;
+  grid-column-start: 4;
+  grid-column-end: 5;
+}
+
+.game-wrap-4 {
+  grid-row-start: 7;
+  grid-row-end: 9;
+} */

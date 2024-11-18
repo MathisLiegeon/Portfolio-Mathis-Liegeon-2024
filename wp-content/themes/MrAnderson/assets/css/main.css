@@ -13,8 +13,9 @@
   --main-title-font: "Italiana", sans-serif;
   --main-title-size: 6rem;
   --main-title-weight: 200;
-  --secondary-title-font: "";
-  --secondary-title-size: 1.5rem;
+  --secondary-title-font: "Italiana", sans-serif;
+  --secondary-title-size: 4rem;
+  --secondary-title-weight: 200;
   --tertiary-title-font: "League Gothic", sans-serif;;
   --tertiary-title-size: 1.8rem;
   --tertiary-title-weight: normal;
@@ -39,8 +40,11 @@ body {
 
 .body-wrapper {
   padding-top: 100px;
-  padding-right: 100px;
-  padding-left: 100px;
+  margin-right: 100px;
+  margin-left: 100px;
+  overflow-x: hidden;
+
+  border: 1px solid var(--primary);
 }
 
 ul {
@@ -59,7 +63,8 @@ a {
   color: black;
 }
 
-p {
+p,
+span {
   margin: 0;
   font-family: var(--base-font);
   font-size: var(--base-size);
@@ -77,6 +82,13 @@ h2 {
 h2 {
     margin: .5rem;
 }
+h3 {
+    font-family: var(--secondary-title-font);
+    font-size: var(--secondary-title-size);
+    font-weight: var(--secondary-title-weight);
+    color: var(--primary);
+    margin: 0;
+}
 
 h4 {
     font-family: var(--tertiary-title-font);
@@ -84,6 +96,10 @@ h4 {
     font-weight: var(--tertiary-title-size);
     color: var(--primary);
     margin: 0;
+}
+
+h5 {
+  margin: 0;
 }
 
 textarea {
