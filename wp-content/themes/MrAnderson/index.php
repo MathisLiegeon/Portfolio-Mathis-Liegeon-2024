@@ -127,7 +127,7 @@ get_header();
             <span class="game-grid-item game-grid-item-6">
                 <span class="game-text-2">Mais certains restent à tout jamais gravé dans nos mémoires, et sont et seront une expérience unique pour chacun d’entre nous grâce au travail titanesque des designers et des developpeurs.</span>
             </span>
-            <span class="game-grid-item game-grid-item-7"></span>
+            <!-- <span class="game-grid-item game-grid-item-7"></span> -->
             <!-- <span class="game-grid-item game-grid-item-8"></span> -->
             <span class="game-grid-item game-grid-item-9">
                 <span class="game-wrap game-wrap-2">
@@ -170,8 +170,8 @@ get_header();
             <span class="game-grid-item game-grid-item-28"></span>
             <span class="game-grid-item game-grid-item-29"></span>
             <span class="game-grid-item game-grid-item-30"></span>
-            <span class="game-grid-item game-grid-item-31"></span>
-            <span class="game-grid-item game-grid-item-32"></span>
+            <!-- <span class="game-grid-item game-grid-item-31"></span>
+            <span class="game-grid-item game-grid-item-32"></span> -->
         </div>
     </div>
 
@@ -184,21 +184,30 @@ get_header();
 
         <div class="music-slider-wrapper">
             <div class="music-slider">
-                <img src="<?php echo get_template_directory_uri();?>/assets/img/img_music-1.webp" alt="">
-                <img src="<?php echo get_template_directory_uri();?>/assets/img/img_music-2.webp" alt="">
-                <img src="<?php echo get_template_directory_uri();?>/assets/img/img_music-3.webp" alt="">
-                <img src="<?php echo get_template_directory_uri();?>/assets/img/img_music-4.webp" alt="">
-                <img src="<?php echo get_template_directory_uri();?>/assets/img/img_music-5.webp" alt="">
-                <img src="<?php echo get_template_directory_uri();?>/assets/img/img_music-6.webp" alt="">
-                <img src="<?php echo get_template_directory_uri();?>/assets/img/img_music-7.webp" alt="">
-                <img src="<?php echo get_template_directory_uri();?>/assets/img/img_music-8.webp" alt="">
+            <?php
+            $args = array (
+                'post_type' => 'musique',
+                'post_per_page' => -1
+            );
+            $musics = new WP_Query($args);
+
+            if ($musics->have_posts()) :
+                while ($musics->have_posts()) : $musics->the_post();
+                    $img = get_field('cover');
+                    $img_url = $img['url'];
+                    console_log('img');
+                    console_log($img['url']);
+                    echo '<img src="'. esc_url($img_url) .'" >';
+                endwhile;
+            endif;
+            ?>
             </div>
-            <div class="music-slider-controller">
+            <!-- <div class="music-slider-controller">
                 <span class="music-button"><</span>
                 <span class="music-button">></span>
                 <span class="music-number">1/8</span>
                 <span class="music-bar"></span>
-            </div>
+            </div> -->
         </div>
 
 </div>
@@ -216,7 +225,7 @@ get_header();
         <?php
         get_template_part('components/button', null, array(
             'url' => '#',
-            'text' => 'Me contacter' 
+            'text' => 'Me contacter'
         ));
         ?>
     </div>
