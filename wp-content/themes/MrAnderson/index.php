@@ -175,7 +175,7 @@ get_header();
         </div>
     </div>
 
-    <div class="music">
+    <div class="music" x-data="{showContent: false, title: '', desc: '', url: ''}">
         <div class="music-header">
             <h3 class="music-title">La musique</h3>
             <span>Auditeur de rap français depuis plusieurs années, certains albums m’ont marqué.</span>
@@ -195,20 +195,23 @@ get_header();
                 while ($musics->have_posts()) : $musics->the_post();
                     $img = get_field('cover');
                     $img_url = $img['url'];
-                    console_log('img');
-                    console_log($img['url']);
-                    echo '<img src="'. esc_url($img_url) .'" >';
-                endwhile;
-            endif;
-            ?>
+                    $title = get_the_title($musics->ID);
+                    $description = get_field('description');
+                    echo '<img src="'. esc_url($img_url) .'" @click="showContent = true; url = \''. esc_html($img_url) .'\';  title = \''. esc_html($title) .'\'; desc = \''. esc_html($description) .'\';">';
+                    endwhile;
+                endif;
+                ?>
             </div>
-            <!-- <div class="music-slider-controller">
-                <span class="music-button"><</span>
-                <span class="music-button">></span>
-                <span class="music-number">1/8</span>
-                <span class="music-bar"></span>
-            </div> -->
         </div>
+        <div x-show="showContent" class="music-content-popup"  x-cloak>
+        <div class="popup-content" @keydown.window.escape="showContent = false" @click.away="showContent = false">
+            <img :src="url" alt="">
+            <div>
+                <h6 x-text="title"></h6>
+                <p x-text="desc"></p>
+            </div>
+        </div>
+    </div>
 
 </div>
 

@@ -31,3 +31,10 @@ function hide_admin_bar() {
   return false;
 }
 add_filter('show_admin_bar', 'hide_admin_bar');
+
+// ADD ALPINE JS
+// Enqueue Alpine.js
+function enqueue_alpinejs() {
+  wp_enqueue_script('alpinejs', 'https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js', array(), null, true);
+}
+add_action('wp_enqueue_scripts', 'enqueue_alpinejs');
