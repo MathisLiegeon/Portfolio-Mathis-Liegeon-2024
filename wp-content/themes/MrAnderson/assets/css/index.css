@@ -147,6 +147,12 @@
 }
 
 /* GAME */
+.game-wrapper {
+  width: 100svw;
+  padding-left: 100px;
+  padding-right: 100px;
+  overflow-x: hidden;
+}
 .game {
   width: 100%;
 }
@@ -165,7 +171,7 @@
 }
 @media screen and (min-width: 1024px) {
   .game-grid {
-    grid-template-rows: repeat(8, minmax(170px, 170px));
+    grid-template-rows: repeat(8, minmax(200px, 200px));
   }
   .game-grid-item-6 > span {
     width: 70%;
@@ -413,9 +419,15 @@
   scrollbar-color: var(--primary) var(--background);
 }
 
-.music-slider img {
-  width: 400px;
+.music-slider-img-container {
+  flex: 0 0 auto;
   scroll-snap-align: start;
+  max-width: 400px;
+}
+.music-slider img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
 }
 
 /* Popup */
@@ -434,24 +446,18 @@
 }
 
 .popup-content {
-  max-width: 90%;
-  max-height: 90%;
-  overflow-y: auto;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  position: absolute;
-  left: 300px;
-}
-.popup-content > img {
-  width: 600px;
-}
-.popup-content > div {
-  height: 100%;
-  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  max-width: 70%;
+}
+.popup-content > img {
+  max-width: 50%;
+  width: auto;
+  max-height: 800px;
+}
+.popup-content > div {
   color: white;
 }
 .popup-content > div > h6 {
@@ -466,6 +472,11 @@
   overflow: hidden;
 }
 
+@media screen and (min-width: 1024px) {
+  .popup-content {
+    flex-direction: row;
+  }
+}
 
 /* CTA */
 .cta {

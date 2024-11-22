@@ -40,8 +40,6 @@ body {
 
 .body-wrapper {
   padding-top: 100px;
-  overflow-x: hidden;
-
   border: 1px solid var(--primary);
 }
 .body-wrapper,

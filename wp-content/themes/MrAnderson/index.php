@@ -109,6 +109,7 @@ get_header();
         <h2>& mes passions</h2>
     </div>
 
+    <div class="game-wrapper">
     <div class="game">
         <h3 class="game-main-title">Les jeux vidéos</h3>
         <div class="game-grid">
@@ -174,7 +175,7 @@ get_header();
             <span class="game-grid-item game-grid-item-32"></span> -->
         </div>
     </div>
-
+    </div>
     <div class="music" x-data="{showContent: false, title: '', desc: '', url: ''}">
         <div class="music-header">
             <h3 class="music-title">La musique</h3>
@@ -197,7 +198,9 @@ get_header();
                     $img_url = $img['url'];
                     $title = get_the_title($musics->ID);
                     $description = get_field('description');
+                    echo '<span class="music-slider-img-container">';
                     echo '<img src="'. esc_url($img_url) .'" @click="showContent = true; url = \''. esc_html($img_url) .'\';  title = \''. esc_html($title) .'\'; desc = \''. esc_html($description) .'\';">';
+                    echo '</span>';
                     endwhile;
                 endif;
                 ?>
