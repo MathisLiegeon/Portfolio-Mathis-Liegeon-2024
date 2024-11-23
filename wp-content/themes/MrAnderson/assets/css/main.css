@@ -4,6 +4,7 @@
   --primary: #2eb2db;
   --background: #f0eee3;
   --black: #000;
+  --secondary: #885F5F;
 
   /* Fonts */
   /* main */
@@ -30,12 +31,13 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
   background-color: var(--background);
-  /* overflow-X: hidden; */
+  overflow-X: hidden;
 }
 
 .body-wrapper {
