@@ -52,7 +52,7 @@ get_header();
     </div>
 
     <div class="project-section">
-        <div class="project-section-left">
+        <div class="project-section-left project-section-left-1">
             <div>
                 <h5>Le défi</h5>
                 <p><?php echo esc_html($challenge);?></p>

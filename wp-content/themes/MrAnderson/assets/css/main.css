@@ -43,6 +43,8 @@ body {
 .body-wrapper {
   padding-top: 100px;
   border: 1px solid var(--primary);
+  border-top: 0;
+  border-bottom: 0;
 }
 .body-wrapper,
 html {

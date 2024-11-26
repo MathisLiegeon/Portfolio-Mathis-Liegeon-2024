@@ -281,7 +281,6 @@
   display: flex;
   align-items: end;
   justify-content: end;
-
 }
 .game-grid-item-6 > span {
   margin-bottom: 1.5rem;
@@ -398,11 +397,11 @@
   display: flex;
   flex-direction: column;
 }
-.music-header h3{
+.music-header h3 {
   margin-bottom: 10px;
 }
 .music-header span {
-  width: 50%;
+  width: 90%;
 }
 .music-slider-wrapper {
   width: 100%;
@@ -425,9 +424,23 @@
   max-width: 400px;
 }
 .music-slider img {
-  max-width: 100%;
+  max-width: 180px;
   width: auto;
   height: auto;
+}
+
+@media screen and (min-width: 500px) {
+  .music-slider img {
+    max-width: 300px;
+  }
+}
+@media screen and (min-width: 850px) {
+  .music-slider img {
+    max-width: 100%;
+  }
+  .music-header span {
+    width: 50%;
+  }
 }
 
 /* Popup */
@@ -461,7 +474,7 @@
   color: white;
 }
 .popup-content > div > h6 {
-  font-family: 'league gothic', sans-serif;
+  font-family: "league gothic", sans-serif;
   text-transform: uppercase;
   font-size: 2rem;
   font-weight: lighter;
@@ -482,16 +495,15 @@
 .cta {
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 500px;
-  border: 1px solid var(--primary);
-  border-right: 0;
-  border-left: 0;
+  height: clamp(300px, 400px, 500px);
+  border-top: 1px solid var(--primary);
 }
 
 .cta > div:first-child {
-  border-right: 1px solid var(--primary);
+  border-bottom: 1px solid var(--primary);
 }
 .cta > div {
   width: 100%;
@@ -499,4 +511,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media screen and (min-width: 850px) {
+  .cta {
+    flex-direction: row;
+  }
+  .cta > div:first-child {
+    border-right: 1px solid var(--primary);
+    border-bottom: 0;
+  }
 }

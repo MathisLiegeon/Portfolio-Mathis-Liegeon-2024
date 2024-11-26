@@ -1,0 +1,55 @@
+/* Main */
+.footer {
+  display: grid;
+  width: 100svw;
+  place-content: center;
+  align-items: center;
+}
+
+.footer-wrapper {
+  transform: translateX(-100px);
+  width: 100svw;
+  display: grid;
+  grid-template-columns: repeat(6, 100px);
+  border-top: 1px solid var(--primary);
+}
+
+/* Content */
+.footer-wrapper > div {
+  height: 100%;
+  border-left: 1px solid var(--primary);
+  padding-bottom: 8rem;
+}
+.footer-wrapper > :first-child {
+  grid-column: 3 / 4;
+}
+.footer-wrapper > :nth-child(2) {
+  grid-column: 4 / 5;
+}
+
+.footer-container {
+  padding: 0.5rem 0 0 0.5rem;
+}
+.footer-content {
+  display: flex;
+  flex-direction: column;
+}
+.footer-title {
+  color: var(--secondary);
+}
+.footer-skills,
+.footer-links {
+  font-family: "League Gothic", sans-serif;
+  color: var(--primary);
+}
+.footer-links {
+    text-transform: uppercase;
+}
+
+.footer-terms {
+    position: absolute;
+    bottom: .5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--primary);
+  }
