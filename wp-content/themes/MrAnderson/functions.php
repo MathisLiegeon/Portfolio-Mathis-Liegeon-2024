@@ -6,7 +6,7 @@ function console_log($data) {
   echo '</script>';
 }
 
-// AUto reload page
+// Auto reload page
 function add_livereload_script() {
   if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {
       wp_enqueue_script('livereload', 'http://localhost:35729/livereload.js', array(), null, true);
@@ -25,6 +25,12 @@ function enqueue_custom_scripts() {
   wp_enqueue_script('main-js', get_template_directory_uri() . '/assets/js/app.js', array(), null, true);
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
+
+//ADD CSS
+function enqueue_custom_styles() {
+  wp_enqueue_style('main-css', get_template_directory_uri() . '/style.css', array(), null, 'all');
+}
+add_action('wp_enqueue_scripts', 'enqueue_custom_styles');
 
 // HIDE ADMIN BAR
 function hide_admin_bar() {

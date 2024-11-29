@@ -64,7 +64,7 @@ get_header();
     <img src="<?php echo get_template_directory_uri();?>/assets/img/img_section-1.svg" alt="">
 </div>
 
-<div class="about">
+<div class="about" id="about">
     <div class="about-content">
         <div>
             <span class="about-title">
@@ -176,7 +176,7 @@ get_header();
         </div>
     </div>
     </div>
-    <div class="music" x-data="{showContent: false, title: '', desc: '', url: ''}">
+    <div class="music">
         <div class="music-header">
             <h3 class="music-title">La musique</h3>
             <span>Auditeur de rap français depuis plusieurs années, certains albums m’ont marqué.</span>
@@ -184,7 +184,7 @@ get_header();
         </div>
 
         <div class="music-slider-wrapper">
-            <div class="music-slider">
+            <div class="music-slider" id="music-slider">
             <?php
             $args = array (
                 'post_type' => 'musique',

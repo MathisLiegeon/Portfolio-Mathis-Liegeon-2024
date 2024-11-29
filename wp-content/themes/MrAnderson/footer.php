@@ -14,7 +14,7 @@
     <div class="footer-container">
       <h5 class="footer-title">Contact</h5>
       <span class="footer-content">
-        <a target="_blank" href="https://www.instagram.com/" class="footer-links">Instagram⇗</a>
+        <a target="_blank" href="https://www.instagram.com/weedwey_" class="footer-links">Instagram⇗</a>
         <a target="_blank" href="https://www.linkedin.com/in/mathis-liegeon/" class="footer-links">LinkedIn⇗</a>
         <a target="_blank" href="" class="footer-links">Behance⇗</a>
         <a href="mailto:liegeon.mathis@gmail.com" class="footer-links">Email⇗</a>
@@ -25,4 +25,4 @@
   </span>
 </footer>
 </body>
-</html>
+</htmL>

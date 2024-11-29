@@ -12,9 +12,11 @@
   --base-size: 1rem;
   --base-weight: 100;
   --main-title-font: "Italiana", sans-serif;
-  --main-title-size: 6rem;
+  /* --main-title-size: 6rem; */
+  --main-title-size: 6svw;
   --main-title-weight: 200;
   --secondary-title-font: "Italiana", sans-serif;
+  --secondary-title-size: 4rem;
   --secondary-title-size: 4rem;
   --secondary-title-weight: 200;
   --tertiary-title-font: "League Gothic", sans-serif;
@@ -39,6 +41,10 @@ body {
   background-color: var(--background);
   overflow-X: hidden;
 }
+.no-scroll {
+  overflow: hidden;
+}
+
 
 .body-wrapper {
   padding-top: 100px;

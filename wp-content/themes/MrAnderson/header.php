@@ -3,12 +3,12 @@
   <head <?php language_attributes(); ?>>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/icons/icon_logo.svg" type="image/x-icon">
     <title><?php wp_title(); ?></title>
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css" type="text/css">
     <?php wp_head();?>
   </head>
 
-  <body>
+  <body x-data="{showContent: false, title: '', desc: '', url: ''}" :class="{'no-scroll': showContent}">
       <header class="header">
         <div class="header-wrapper">
           <a href="<?php echo home_url();?>" class="header-logo">
@@ -30,6 +30,7 @@
             ));
           ?>
         </nav>
+        <spam class="menu-sidetext">Mathis Liegeon</spam>
 
   </header>
 
