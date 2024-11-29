@@ -482,20 +482,20 @@
   font-weight: lighter;
   margin: 0;
 }
-.popup-content > div::after,
-.popup-content > div::before {
+.music-content-popup::after,
+.music-content-popup::before {
   content: "";
   position: absolute;
   top: 100px;
   right: 100px;
-  width: 30px;
+  width: 35px;
   height: 1px;
   background-color: white;
 }
-.popup-content > div::after {
+.music-content-popup::after {
   rotate: 45deg;
 }
-.popup-content > div::before {
+.music-content-popup::before {
   rotate: -45deg;
 }
 
