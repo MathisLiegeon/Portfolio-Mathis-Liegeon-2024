@@ -4,6 +4,7 @@
   width: 100svw;
   place-content: center;
   align-items: center;
+  border-top: 1px solid var(--primary);
 }
 
 .footer-wrapper {
@@ -11,7 +12,7 @@
   width: 100svw;
   display: grid;
   grid-template-columns: repeat(6, 100px);
-  border-top: 1px solid var(--primary);
+  border-right: 1px solid var(--primary);
 }
 
 /* Content */

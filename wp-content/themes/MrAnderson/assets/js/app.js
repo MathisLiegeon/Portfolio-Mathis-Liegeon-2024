@@ -1,6 +1,5 @@
 // HEADER CONFIGURATION
 document.addEventListener("DOMContentLoaded", function () {
-    console.log('loaded')
   var burger = document.getElementById("burger");
   var headerMenu = document.getElementById("header-menu");
 

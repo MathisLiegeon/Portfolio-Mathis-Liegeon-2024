@@ -11,10 +11,10 @@ get_header();
         CONTACTEZ-MOI
     </h1>
     <div class="contact-content">
-        <span class="contact-link">INSTAGRAM⇗</span>
-        <span class="contact-link">LINKEDIN⇗</span>
-        <span class="contact-link">BEHANCE⇗</span>
-        <span class="contact-link">EMAIL⇗</span>
+        <a target="_blank" href="https://www.instagram.com/weedwey_">Instagram⇗</a>
+        <a target="_blank" href="https://www.linkedin.com/in/mathis-liegeon/">LinkedIn⇗</a>
+        <a target="_blank" href="">Behance⇗</a>
+        <a href="mailto:liegeon.mathis@gmail.com">Email⇗</a>
     </div>
 </div>
 
