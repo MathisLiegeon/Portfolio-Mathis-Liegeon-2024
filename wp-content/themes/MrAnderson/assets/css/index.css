@@ -259,7 +259,6 @@
 
 /* display grid */
 .game-grid-item {
-  /* background-color: rgba(0, 0, 0, 0.2);
   margin: 0.5rem; */
   border: 0.5px solid var(--primary);
   border-top: 0;
@@ -482,6 +481,22 @@
   font-size: 2rem;
   font-weight: lighter;
   margin: 0;
+}
+.popup-content > div::after,
+.popup-content > div::before {
+  content: "";
+  position: absolute;
+  top: 100px;
+  right: 100px;
+  width: 30px;
+  height: 1px;
+  background-color: white;
+}
+.popup-content > div::after {
+  rotate: 45deg;
+}
+.popup-content > div::before {
+  rotate: -45deg;
 }
 
 @media screen and (min-width: 1024px) {
