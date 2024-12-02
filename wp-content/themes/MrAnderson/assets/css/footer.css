@@ -45,6 +45,9 @@
 }
 .footer-links {
     text-transform: uppercase;
+    position: relative;
+    display: block;
+    z-index: 2;
 }
 
 .footer-terms {

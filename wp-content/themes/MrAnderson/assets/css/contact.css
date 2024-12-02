@@ -47,9 +47,12 @@
   position: relative;
   z-index: 1000;
 }
-.contact-content a:hover {
+.contact-content a:hover,
+.footer-links:hover {
   color: var(--background);
 }
+/* .contact-content a:hover::before,
+.footer-links:hover::before { */
 .contact-content a:hover::before {
   content: "";
   position: absolute;
@@ -58,6 +61,22 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  background-image: url("../img/img_contact-hover.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  z-index: -1;
+}
+.footer-links:hover::before {
+  content: "";
+  position: absolute;
+  width: 130svw;
+  height: 100%;
+  /* top: 50%; */
+  left: -30svw;
+  /* transform: translate(-50%, -50%); */
 
   background-image: url("../img/img_contact-hover.svg");
   background-size: cover;
