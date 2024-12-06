@@ -5,6 +5,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  padding: 4svw;
+  transform: translateY(-5%);
+  margin-bottom: 3svw;
 }
 
 .hero svg {
@@ -21,6 +25,13 @@
 }
 .section-1 > * {
   width: 100svw;
+  z-index: -1;
+}
+
+.section-1-rect {
+  fill: var(--background);
+  position: relative;
+  z-index: -1;
 }
 
 /* ABOUT */
@@ -78,6 +89,27 @@
 }
 .about-skills > div * * {
   width: 48px;
+}
+.about-skills > div span:nth-child(1) img:nth-child(2) {
+  transition-delay: 200ms;
+}
+.about-skills > div span:nth-child(1) img:nth-child(3) {
+  transition-delay: 300ms;
+}
+.about-skills > div span:nth-child(1) img:nth-child(4) {
+  transition-delay: 400ms;
+}
+.about-skills > div span:nth-child(1) img:nth-child(5) {
+  transition-delay: 500ms;
+}
+.about-skills > div span:nth-child(2) img:nth-child(1) {
+  transition-delay: 600ms;
+}
+.about-skills > div span:nth-child(2) img:nth-child(2) {
+  transition-delay: 700ms;
+}
+.about-skills > div span:nth-child(2) img:nth-child(3) {
+  transition-delay: 800ms;
 }
 
 /* VISION */
@@ -137,7 +169,7 @@
 /* header */
 .passions-header {
   text-align: center;
-  width: 100svw;
+  width: 200svw;
 }
 .passions-header > * {
   border: 1px solid var(--primary);
@@ -458,6 +490,10 @@
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 20000;
   overflow: hidden;
+  opacity: 0;
+}
+.music-popup-show {
+  opacity: 1;
 }
 
 .popup-content {

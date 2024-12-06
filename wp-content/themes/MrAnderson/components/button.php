@@ -4,7 +4,6 @@
 }
 </style>
 <a
-class="button"
-href="<?php echo esc_url($args['url']); ?>">
+class="button hidden-to-grow <?php echo esc_html($args['class']); ?>" href="<?php echo esc_url($args['url']); ?>">
 <?php echo esc_html($args['text']); ?>
 </a>

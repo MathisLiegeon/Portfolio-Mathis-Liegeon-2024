@@ -10,6 +10,7 @@ if (have_posts()) :
     $theme = get_field('project_theme');
     $year = get_field('project_year');
     $transition = get_field('project_transition');
+    $url = get_field('url') ? get_field('url') : "";
 
     $illu_list_1 = [];
     $illu_list_2 = [];
@@ -18,17 +19,18 @@ if (have_posts()) :
     $illu_3 = get_field('project_illu-3');
     $illu_4 = get_field('project_illu-4');
     $illu_5 = get_field('project_illu-5');
-    $illu_6 = get_field('project_illu-6');
-    $illu_7 = get_field('project_illu-7');
-    $illu_8 = get_field('project_illu-8');
-    $illu_9 = get_field('project_illu-9');
-    console_log('illu9');
-    console_log($illu_9);
-    $illu_9 = get_field('project_illu-10');
-    console_log('illu10');
-    console_log($illu_10);
+    $illu_6 = get_field('project_illu-6') ? get_field('project_illu-6') : null;
+    $illu_7 = get_field('project_illu-7') ? get_field('project_illu-7') : null;
+    $illu_8 = get_field('project_illu-8') ? get_field('project_illu-8') : null;
+    $illu_9 = get_field('project_illu-9') ? get_field('project_illu-9') : null;
+    $illu_10 = get_field('project_illu-10') ? get_field('project_illu-10') : null;
     array_push($illu_list_1, $illu_1, $illu_2, $illu_3, $illu_4);
-    array_push($illu_list_2, $illu_5, $illu_6, $illu_7, $illu_8, $illu_9, $illu_10);
+    if($illu_6 != null) {
+        array_push($illu_list_2, $illu_5, $illu_6, $illu_7, $illu_8, $illu_9, $illu_10);
+    } else {
+        array_push($illu_list_2, $illu_5);
+    }
+
 
 get_header();
 ?>
@@ -36,13 +38,14 @@ get_header();
 <div class="project-wrapper">
     <div class="project-hero">
         <div class="project-hero-header">
-            <h2><?php the_title();?></h2>
-            <p><?php echo esc_html($excerpt);?></p>
+            <h2 class="hidden-to-bottom"><?php the_title();?></h2>
+            <p class="hidden-to-top"><?php echo esc_html($excerpt);?></p>
         </div>
         <?php
         get_template_part('components/button', null, array(
             'url' => '#project-cover',
-            'text' => 'Découvrir'
+            'text' => 'Découvrir',
+            'class' => 'hidden-to-top'
         ));
         ?>
     </div>
@@ -54,12 +57,12 @@ get_header();
     <div class="project-section">
         <div class="project-section-left project-section-left-1">
             <div>
-                <h5>Le défi</h5>
-                <p><?php echo esc_html($challenge);?></p>
+                <h5 class="hidden-to-right-slow">Le défi</h5>
+                <p class="hidden-to-right-slow"><?php echo esc_html($challenge);?></p>
             </div>
             <div>
-                <h5>Le déroulement</h5>
-                <p><?php echo esc_html($progress);?></p>
+                <h5 class="hidden-to-right-slow">Le déroulement</h5>
+                <p class="hidden-to-right-slow"><?php echo esc_html($progress);?></p>
             </div>
         </div>
         <div class="project-section-right">
@@ -101,8 +104,19 @@ get_header();
     <div class="project-section">
     <div class="project-section-left">
             <div>
-                <h5>Le résultat</h5>
-                <p><?php echo esc_html($result);?></p>
+                <h5 class="hidden-to-right-slow">Le résultat</h5>
+                <p class="hidden-to-right-slow"><?php echo esc_html($result);?></p>
+            <?php
+            if($url) :
+            ?>
+            <span class="project-url">
+                <h5 class="hidden-to-right-slow">
+                    <a class="footer-links" href="<?php echo esc_url($url);?>">Lien vers le site</a>
+                </h5>
+            </span>
+            <?php
+            endif;
+            ?>
             </div>
         </div>
     </div>
@@ -111,23 +125,39 @@ get_header();
         <div class="project-grid project-grid-1">
             <?php
             foreach ($illu_list_1 as $illu) {
-                echo '<img src="'. esc_url($illu) .'" alt="image">';
+                echo '<img class="hidden-to-grow" src="'. esc_url($illu) .'" alt="image">';
             }
             ?>
         </div>
+        <?php
+        if($illu_6 != null) :
+        ?>
         <div class="project-grid project-grid-2">
             <?php
             foreach ($illu_list_2 as $illu) {
-                echo '<img src="'. esc_url($illu) .'" alt="image">';
+                echo '<img class="hidden-to-grow" src="'. esc_url($illu) .'" alt="image">';
             }
             ?>
         </div>
+        <?php
+        else :
+        ?>
+        <div class="project-grid-2bis">
+            <?php
+            foreach ($illu_list_2 as $illu) {
+                echo '<img class="hidden-to-grow" src="'. esc_url($illu) .'" alt="image">';
+            }
+            ?>
+        </div>
+        <?php
+        endif;
+        ?>
     </div>
 
     <div class="cta project-cta">
         <?php
         get_template_part('components/button', null, array(
-        'url' => '#',
+            'url' => esc_url(home_url()) . '/projects',
         'text' => 'Retourner aux projets'
         ));
         ?>

@@ -39,8 +39,18 @@ function hide_admin_bar() {
 add_filter('show_admin_bar', 'hide_admin_bar');
 
 // ADD ALPINE JS
-// Enqueue Alpine.js
 function enqueue_alpinejs() {
-  wp_enqueue_script('alpinejs', 'https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js', array(), null, true);
+    // Enregistrer Alpine.js avec defer
+    wp_enqueue_script(
+        'alpinejs',
+        'https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js',
+        array(),
+        null,
+        array(
+            'strategy' => 'defer',
+            'in_footer' => true
+        )
+    );
 }
-add_action('wp_enqueue_scripts', 'enqueue_alpinejs');
+// Utiliser une priorité élevée pour charger en dernier
+add_action('wp_enqueue_scripts', 'enqueue_alpinejs', 100);

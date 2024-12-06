@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head <?php language_attributes(); ?>>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,7 +30,10 @@
             ));
           ?>
         </nav>
-        <spam class="menu-sidetext">Mathis Liegeon</spam>
+        <?php
+        if (!is_page('projects')): ?>
+        <!-- <span class="menu-sidetext">Mathis Liegeon</span> -->
+        <?php endif; ?>
 
   </header>
 

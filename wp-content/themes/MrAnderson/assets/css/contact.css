@@ -41,19 +41,20 @@
   font-family: var(--main-title-font);
 }
 
-.contact-content a {
+.contact-content span a {
   color: var(--primary);
   font-size: 1.5svw;
   position: relative;
   z-index: 1000;
+  font-family: var(--main-title-font);
 }
-.contact-content a:hover,
+.contact-content span a:hover,
 .footer-links:hover {
   color: var(--background);
 }
 /* .contact-content a:hover::before,
 .footer-links:hover::before { */
-.contact-content a:hover::before {
+.contact-content span a:hover::before {
   content: "";
   position: absolute;
   width: 100svw;
@@ -74,9 +75,7 @@
   position: absolute;
   width: 130svw;
   height: 100%;
-  /* top: 50%; */
   left: -30svw;
-  /* transform: translate(-50%, -50%); */
 
   background-image: url("../img/img_contact-hover.svg");
   background-size: cover;
