@@ -267,78 +267,51 @@ get_header();
 </div>
 
 <div class="passions">
-    <div class="passions-header">
+    <div class="passions-header" id="passions-header">
         <h2 class="hidden-to-left">Plus sur moi</h2>
         <h2 class="hidden-to-right">& mes passions</h2>
     </div>
 
-    <div class="game-wrapper">
-    <div class="game">
-        <h3 class="game-main-title hidden-to-bottom">Les jeux vidéos</h3>
-        <div class="game-grid">
-            <span class="game-grid-item game-grid-item-1">
-                <span class="game-text-1">Comme beaucoup de gens avant moi, j’ai été acompagné toute mon adolescence par tout types de jeux vidéos. </span>
-            </span>
-            <span class="game-grid-item game-grid-item-2"></span>
-            <span class="game-grid-item game-grid-item-3"></span>
-            <span class="game-grid-item game-grid-item-4">
-                <span class="game-wrap game-wrap-1">
-                    <img class="game-img-1" src="<?php echo get_template_directory_uri();?>/assets/img/img_games-1.webp " alt="Image du jeux vidéo Titanfall2">
-                    <h5 class="game-title-1">Titanfall 2</h5>
-                </span>
-            </span>
-            <span class="game-grid-item game-grid-item-5"></span>
-            <span class="game-grid-item game-grid-item-6">
-                <span class="game-text-2">Mais certains restent à tout jamais gravé dans nos mémoires, et sont et seront une expérience unique pour chacun d’entre nous grâce au travail titanesque des designers et des developpeurs.</span>
-            </span>
-            <!-- <span class="game-grid-item game-grid-item-7"></span> -->
-            <!-- <span class="game-grid-item game-grid-item-8"></span> -->
-            <span class="game-grid-item game-grid-item-9">
-                <span class="game-wrap game-wrap-2">
-                    <h5 class="game-title-2">Outer Wilds</h5>
-                    <img class="game-img-2" src="<?php echo get_template_directory_uri();?>/assets/img/img_games-2.webp " alt="Image du jeux vidéo Outer Wilds">
-                </span>
-            </span>
-            <!-- <span class="game-grid-item game-grid-item-10"></span> -->
-            <span class="game-grid-item game-grid-item-11"></span>
-            <span class="game-grid-item game-grid-item-12"></span>
-            <span class="game-grid-item game-grid-item-13"></span>
-            <span class="game-grid-item game-grid-item-14">
-                <span class="game-text-3">Voici quelques uns des jeux qui m’ont inspiré et qui m’ont montré que parfois, un jeu vidéo, n’est pas seulement un diversitssement, mais une vraie expérience.</span>
-            </span>
-            <span class="game-grid-item game-grid-item-15"></span>
-            <span class="game-grid-item game-grid-item-16"></span>
-            <span class="game-grid-item game-grid-item-17"></span>
-            <span class="game-grid-item game-grid-item-18"></span>
-            <span class="game-grid-item game-grid-item-19">
-                <span class="game-wrap game-wrap-3">
-                    <img class="game-img-3" src="<?php echo get_template_directory_uri();?>/assets/img/img_games-3.webp " alt="Image du jeux            vidéo Minecraft">
-                    <h5 class="game-title-2">Minecraft</h5>
-                </span>
-            </span>
-            <span class="game-grid-item game-grid-item-20"></span>
-            <span class="game-grid-item game-grid-item-21">
-                <span class="game-wrap game-wrap-4">
-                    <img class="game-img-4" src="<?php echo get_template_directory_uri();?>/assets/img/img_games-4.webp " alt="Image du jeux vidéo AC: Black Flag">
-                    <h5 class="game-title-2">AC: Black Flag</h5>
-                </span>
-            </span>
-            <span class="game-grid-item game-grid-item-22"></span>
-            <span class="game-grid-item game-grid-item-23">
+    <div class="game-container" id="game-container">
+      <div class="game-outer-wrapper">
+        <div class="game-wrapper">
+          <div class="game-slide game-slide-1">
+            <h3 class="game-main-title hidden-to-bottom">Les jeux vidéos</h3>
+          </div>
+
+          <div class="game-slide game-slide-2">
+            <span class="game-text-1">Comme beaucoup de gens avant moi, j’ai été acompagné toute mon adolescence par tout types de jeux vidéos. </span>
+            <img class="game-img-1" src="<?php echo get_template_directory_uri();?>/assets/img/img_games-1.webp " alt="Image du jeux vidéo Titanfall2">
+            <h5 class="game-title-1">Titanfall 2</h5>
+          </div>
+
+          <div class="game-slide game-slide-3">
+            <span class="game-text-2">Mais certains restent à tout jamais gravé dans nos mémoires, et sont et seront une expérience unique pour chacun d’entre nousgrâau     travail titanesque des designers et des developpeurs.</span>
+            <h5 class="game-title-2">Outer Wilds</h5>
+            <img class="game-img-2" src="<?php echo get_template_directory_uri();?>/assets/img/img_games-2.webp " alt="Image du jeux vidéo Outer Wilds">
+          </div>
+
+          <div class="game-slide game-slide-4">
+            <span class="game-text-2">Mais certains restent à tout jamais gravé dans nos mémoires, et sont et seront une expérience unique pour chacun d’entre nousgrâau     travail titanesque des designers et des developpeurs.</span>
+            <h5 class="game-title-2">Outer Wilds</h5>
+            <img class="game-img-2" src="<?php echo get_template_directory_uri();?>/assets/img/img_games-2.webp " alt="Image du jeux vidéo Outer Wilds">
+          </div>
+
+          <div class="game-slide game-slide-5">
+            <span class="game-text-3">Voici quelques uns des jeux qui m’ont inspiré et qui m’ont montré que parfois, un jeu vidéo, n’est pas seulement undiversitssemenmais  une  vraie expérience.</span>
+            <img class="game-img-3" src="<?php echo get_template_directory_uri();?>/assets/img/img_games-3.webp " alt="Image du jeux            vidéo Minecraft">
+            <h5 class="game-title-2">Minecraft</h5>
+          </div>
+
+          <div class="game-slide game-slide-6">
+            <img class="game-img-4" src="<?php echo get_template_directory_uri();?>/assets/img/img_games-4.webp " alt="Image du jeux vidéo AC: Black Flag">
+            <h5 class="game-title-2">AC: Black Flag</h5>
             <span class="game-text-4">Une expérience réflechie et designée directement pour le joueur.</span>
-            </span>
-            <span class="game-grid-item game-grid-item-24"></span>
-            <span class="game-grid-item game-grid-item-25"></span>
-            <span class="game-grid-item game-grid-item-26"></span>
-            <span class="game-grid-item game-grid-item-27"></span>
-            <span class="game-grid-item game-grid-item-28"></span>
-            <span class="game-grid-item game-grid-item-29"></span>
-            <span class="game-grid-item game-grid-item-30"></span>
-            <!-- <span class="game-grid-item game-grid-item-31"></span>
-            <span class="game-grid-item game-grid-item-32"></span> -->
+          </div>
         </div>
+      </div>
     </div>
-    </div>
+
     <div class="music">
         <div class="music-header">
             <h3 class="music-title hidden-to-right-slow">La musique</h3>

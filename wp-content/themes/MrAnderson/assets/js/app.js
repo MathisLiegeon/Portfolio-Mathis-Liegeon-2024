@@ -54,70 +54,137 @@ document.addEventListener("alpine:init", () => {
     .querySelectorAll('[class*="hidden-"]')
     .forEach((el) => observer.observe(el));
 
-    const observerSvg = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.target.classList.contains("hidden-section-1-t")) {
-          const path = entry.target;
-          const svg = path.closest("svg");
-          const nextGroup = path.closest("g").nextElementSibling;
-          const nextNextGroup = nextGroup?.nextElementSibling;
-    
-          if (svg) {
-            const initialHeight = 466.5;
-            const maxStretch = 500;
-            let lastScrollY = window.scrollY;
-            let ticking = false;
-    
-            // Optimisation : Mettre en cache les éléments
-            const elements = [path, nextGroup, nextNextGroup].filter(Boolean);
-    
-            // Activer GPU acceleration
-            elements.forEach(el => {
-              el.style.willChange = 'transform';
-              el.style.transformOrigin = "top";
-              el.style.transformBox = "fill-box";
-            });
-    
-            const onScroll = () => {
-              if (!ticking && Math.abs(window.scrollY - lastScrollY) > 5) { // Throttle
-                lastScrollY = window.scrollY;
-                
-                requestAnimationFrame(() => {
-                  const stretch = Math.min(lastScrollY * 0.5, maxStretch);
-                  const scale = 1 + (stretch / initialHeight) * 8;
-    
-                  // Utiliser transform3d pour GPU acceleration
-                  path.style.transform = `translate3d(0,0,0) scaleY(${scale})`;
-                  
-                  if (nextGroup) {
-                    nextGroup.style.transform = `translate3d(0,${stretch}px,0)`;
-                  }
-                  if (nextNextGroup) {
-                    nextNextGroup.style.transform = `translate3d(0,${stretch}px,0)`;
-                  }
-    
-                  ticking = false;
-                });
-    
-                ticking = true;
-              }
-            };
-    
-            window.addEventListener("scroll", onScroll, { passive: true });
-    
-            // Cleanup
-            return () => {
-              window.removeEventListener("scroll", onScroll);
-              elements.forEach(el => {
-                el.style.willChange = 'auto';
+  const observerSvg = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.target.classList.contains("hidden-section-1-t")) {
+        const path = entry.target;
+        const svg = path.closest("svg");
+        const nextGroup = path.closest("g").nextElementSibling;
+        const nextNextGroup = nextGroup?.nextElementSibling;
+
+        if (svg) {
+          const initialHeight = 466.5;
+          const maxStretch = 500;
+          let lastScrollY = window.scrollY;
+          let ticking = false;
+
+          // Optimisation : Mettre en cache les éléments
+          const elements = [path, nextGroup, nextNextGroup].filter(Boolean);
+
+          // Activer GPU acceleration
+          elements.forEach((el) => {
+            el.style.willChange = "transform";
+            el.style.transformOrigin = "top";
+            el.style.transformBox = "fill-box";
+          });
+
+          const onScroll = () => {
+            if (!ticking && Math.abs(window.scrollY - lastScrollY) > 5) {
+              // Throttle
+              lastScrollY = window.scrollY;
+
+              requestAnimationFrame(() => {
+                const stretch = Math.min(lastScrollY * 0.5, maxStretch);
+                const scale = 1 + (stretch / initialHeight) * 8;
+
+                // Utiliser transform3d pour GPU acceleration
+                path.style.transform = `translate3d(0,0,0) scaleY(${scale})`;
+
+                if (nextGroup) {
+                  nextGroup.style.transform = `translate3d(0,${stretch}px,0)`;
+                }
+                if (nextNextGroup) {
+                  nextNextGroup.style.transform = `translate3d(0,${stretch}px,0)`;
+                }
+
+                ticking = false;
               });
-            };
+
+              ticking = true;
+            }
+          };
+
+          window.addEventListener("scroll", onScroll, { passive: true });
+
+          // Cleanup
+          return () => {
+            window.removeEventListener("scroll", onScroll);
+            elements.forEach((el) => {
+              el.style.willChange = "auto";
+            });
+          };
+        }
+      }
+    });
+  });
+
+  document
+    .querySelectorAll(".hidden-section-1-t")
+    .forEach((el) => observerSvg.observe(el));
+
+
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const gameContainer = document.getElementById('game-container');
+      const gameOuterWrapper = document.querySelector('.game-outer-wrapper');
+      
+      if (!gameContainer || !gameOuterWrapper) {
+        console.error('game-container or game-outer-wrapper not found');
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            window.scrollTo({
+              top: entry.boundingClientRect.top + window.scrollY - (window.innerHeight / 2 - entry.boundingClientRect.height / 2),
+              behavior: 'smooth'
+            });
           }
+        });
+      }, { threshold: 0.01 });
+    
+      observer.observe(gameContainer);
+    
+      let isExitingCarousel = false;
+    
+      gameOuterWrapper.addEventListener('scroll', () => {
+        const scrollPosition = gameOuterWrapper.scrollTop;
+        const maxScroll = gameOuterWrapper.scrollHeight - gameOuterWrapper.clientHeight;
+    
+        if (scrollPosition === 0 || scrollPosition >= maxScroll) {
+          document.body.style.overflow = '';
+        } else {
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    
+      gameContainer.addEventListener('wheel', (e) => {
+        const scrollPosition = gameOuterWrapper.scrollTop;
+        const maxScroll = gameOuterWrapper.scrollHeight - gameOuterWrapper.clientHeight;
+    
+        if ((scrollPosition === 0 && e.deltaY < 0) || (scrollPosition >= maxScroll && e.deltaY > 0)) {
+          if (!isExitingCarousel) {
+            isExitingCarousel = true;
+            document.body.style.overflow = '';
+            gameContainer.style.pointerEvents = 'none';
+    
+            if (scrollPosition === 0) {
+              window.scrollBy(0, -gameContainer.clientHeight - 100);
+            } else {
+              window.scrollBy(0, gameContainer.clientHeight + 100);
+            }
+    
+            setTimeout(() => {
+              gameContainer.style.pointerEvents = 'auto';
+              isExitingCarousel = false;
+            }, 1000);
+          }
+          e.preventDefault();
         }
       });
     });
-    
-    document
-      .querySelectorAll(".hidden-section-1-t")
-      .forEach((el) => observerSvg.observe(el));
+
+
 });
