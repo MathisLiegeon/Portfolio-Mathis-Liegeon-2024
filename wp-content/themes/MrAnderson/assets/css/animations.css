@@ -37,7 +37,7 @@
 }
 .hidden-to-grow {
   opacity: 0;
-  scale: 0.95;
+  transform: scale(0.95);
   transition: all 1s;
 }
 .hidden-to-rotate {

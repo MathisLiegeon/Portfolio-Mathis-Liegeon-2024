@@ -46,15 +46,15 @@ get_header();
     <path d="M1401.49 783.603C1397.58 779.77 1394.46 775.146 1392.13 769.732C1389.84 764.278 1388.69 758.35 1388.69 751.948C1388.69 745.507 1389.78 739.737 1391.95 734.639C1394.16 729.501 1397.21 725.055 1401.08 721.301C1409.38 713.318 1419.79 709.326 1432.32 709.326C1444.77 709.326 1454.96 713.259 1462.91 721.123C1470.97 729.106 1475 739.46 1475 752.185C1475 764.871 1470.87 775.304 1462.61 783.485C1457.43 788.543 1451.07 792.041 1443.52 793.977C1439.77 794.926 1435.4 795.4 1430.42 795.4C1425.48 795.4 1420.4 794.392 1415.19 792.377C1409.97 790.322 1405.41 787.397 1401.49 783.603ZM1432.26 713.654C1430.09 713.654 1428.05 713.812 1426.15 714.128V790.598C1427.97 790.915 1430.01 791.073 1432.26 791.073C1442.81 791.073 1451.7 787.555 1458.94 780.521C1466.48 773.21 1470.26 763.765 1470.26 752.185C1470.26 741.159 1466.72 731.991 1459.65 724.68C1452.49 717.329 1443.36 713.654 1432.26 713.654Z" fill="#2EB2DB"/>
     </g>
     <path d="M354.744 675.4H354.12L358.296 641.8H359.88L369.96 672.856L379.992 641.8H381.576L385.752 675.4H381.768L378.456 648.52L369.768 675.4H366.744L357.96 648.856L354.744 675.4ZM390.572 659.416C390.572 653.592 391.98 649.176 394.796 646.168C397.644 643.128 401.292 641.608 405.74 641.608C410.188 641.608 413.724 642.92 416.348 645.544C419.004 648.168 420.332 652.36 420.332 658.12C420.332 663.88 418.924 668.232 416.108 671.176C413.292 674.12 409.532 675.592 404.828 675.592C400.764 675.592 397.436 674.424 394.844 672.088C393.5 670.872 392.444 669.192 391.676 667.048C390.94 664.872 390.572 662.328 390.572 659.416ZM405.596 642.088C402.364 642.088 399.708 643.528 397.628 646.408C395.58 649.288 394.556 653.512 394.556 659.08C394.556 664.648 395.532 668.712 397.484 671.272C399.436 673.832 402.028 675.112 405.26 675.112C408.524 675.112 411.18 673.672 413.228 670.792C415.308 667.88 416.348 663.672 416.348 658.168C416.348 652.632 415.356 648.568 413.372 645.976C411.42 643.384 408.828 642.088 405.596 642.088ZM425.994 675.4H425.37V641.8H427.002L446.97 672.856V641.8H447.594V675.4H444.09L425.994 647.56V675.4Z" fill="#2EB2DB"/>
-    <line class="star-line" x1="435.5" y1="806.4" x2="435.5" y2="704.4" stroke="#2EB2DB"/>
-    <line class="star-line" x1="436" y1="755.667" x2="381" y2="755.667" stroke="#2EB2DB"/>
-    <line class="star-line" y1="-0.5" x2="55.447" y2="-0.5" transform="matrix(-0.701406 -0.712762 0.701406 -0.712762 436 755.167)" stroke="#2EB2DB"/>
-    <line class="star-line" y1="-0.5" x2="55.447" y2="-0.5" transform="matrix(-0.701406 0.712762 -0.701406 -0.712762 435.542 755.236)" stroke="#2EB2DB"/>
+    <line class="star-line star-line-hero" x1="435.5" y1="806.4" x2="435.5" y2="704.4" stroke="#2EB2DB"/>
+    <line class="star-line star-line-hero" x1="436" y1="755.667" x2="381" y2="755.667" stroke="#2EB2DB"/>
+    <line class="star-line star-line-hero" y1="-0.5" x2="55.447" y2="-0.5" transform="matrix(-0.701406 -0.712762 0.701406 -0.712762 436 755.167)" stroke="#2EB2DB"/>
+    <line class="star-line star-line-hero" y1="-0.5" x2="55.447" y2="-0.5" transform="matrix(-0.701406 0.712762 -0.701406 -0.712762 435.542 755.236)" stroke="#2EB2DB"/>
     <g class="star-1 hidden-to-rotate">
-    <line class="star-line" x1="1171.5" y1="400" x2="1171.5" y2="505" stroke="#2EB2DB"/>
-    <line class="star-line" x1="1118.71" y1="451.76" x2="1223.3" y2="451.76" stroke="#2EB2DB"/>
-    <line class="star-line" y1="-0.5" x2="105.33" y2="-0.5" transform="matrix(0.704107 0.710094 -0.704107 0.710094 1133.92 414.863)" stroke="#2EB2DB"/>
-    <line class="star-line" y1="-0.5" x2="105.33" y2="-0.5" transform="matrix(0.704107 -0.710094 0.704107 0.710094 1133.92 489.658)" stroke="#2EB2DB"/>
+    <line class="star-line star-line-hero" x1="1171.5" y1="400" x2="1171.5" y2="505" stroke="#2EB2DB"/>
+    <line class="star-line star-line-hero" x1="1118.71" y1="451.76" x2="1223.3" y2="451.76" stroke="#2EB2DB"/>
+    <line class="star-line star-line-hero" y1="-0.5" x2="105.33" y2="-0.5" transform="matrix(0.704107 0.710094 -0.704107 0.710094 1133.92 414.863)" stroke="#2EB2DB"/>
+    <line class="star-line star-line-hero" y1="-0.5" x2="105.33" y2="-0.5" transform="matrix(0.704107 -0.710094 0.704107 0.710094 1133.92 489.658)" stroke="#2EB2DB"/>
     </g>
     <rect class="hero-svg-hand" width="380" height="412.806" fill="url(#pattern0_744_1163)"/>
     <defs>
@@ -226,15 +226,29 @@ get_header();
             <h4 class="hidden-to-bottom-hard">Je maitrise</h4>
             <div>
             <span>
-                <img class="hidden-to-right" src="<?php echo get_template_directory_uri();?>/assets/icons/icon_photoshop.svg" alt="Icone du logiciel photoshop">
-                <img class="hidden-to-right" src="<?php echo get_template_directory_uri();?>/assets/icons/icon_ilustrator.svg" alt="Icone du logiciel ilustrator">
-                <img class="hidden-to-right" src="<?php echo get_template_directory_uri();?>/assets/icons/icon_figma.svg" alt="Icone du logiciel figma">
-                <img class="hidden-to-right" src="<?php echo get_template_directory_uri();?>/assets/icons/icon_krita.svg" alt="Icone du logiciel krita">
+              <span class="hidden-to-right">
+                <img src="<?php echo get_template_directory_uri();?>/assets/icons/icon_photoshop.svg" alt="Icone du logiciel photoshop">
+              </span>
+              <span class="hidden-to-right">
+                <img src="<?php echo get_template_directory_uri();?>/assets/icons/icon_ilustrator.svg" alt="Icone du logiciel ilustrator">
+                </span>
+              <span class="hidden-to-right">
+                <img src="<?php echo get_template_directory_uri();?>/assets/icons/icon_figma.svg" alt="Icone du logiciel figma">
+                </span>
+              <span class="hidden-to-right">
+                <img src="<?php echo get_template_directory_uri();?>/assets/icons/icon_krita.svg" alt="Icone du logiciel krita">
+                </span>
             </span>
             <span>
-                <img class="hidden-to-right" src="<?php echo get_template_directory_uri();?>/assets/icons/icon_wordpress.svg" alt="Icone de wordpress">
-                <img class="hidden-to-right" src="<?php echo get_template_directory_uri();?>/assets/icons/icon_vueJs.svg" alt="Icone de vueJs">
-                <img class="hidden-to-right" src="<?php echo get_template_directory_uri();?>/assets/icons/icon_tailwind.svg" alt="Icone de tailwind">
+            <span class="hidden-to-right">
+                <img src="<?php echo get_template_directory_uri();?>/assets/icons/icon_wordpress.svg" alt="Icone de wordpress">
+                </span>
+              <span class="hidden-to-right">
+                <img src="<?php echo get_template_directory_uri();?>/assets/icons/icon_vueJs.svg" alt="Icone de vueJs">
+                </span>
+              <span class="hidden-to-right">
+                <img src="<?php echo get_template_directory_uri();?>/assets/icons/icon_tailwind.svg" alt="Icone de tailwind">
+                </span>
             </span>
             </div>
         </div>
@@ -370,12 +384,12 @@ get_header();
 
 <div class="cta">
     <div>
-    <?php
-get_template_part('components/button', null, array(
-    'url' => esc_url(home_url()) . '/projects',
-    'text' => 'Mes projets'
-));
-?>
+      <?php
+      get_template_part('components/button', null, array(
+          'url' => esc_url(home_url()) . '/projects',
+          'text' => 'Mes projets'
+      ));
+      ?>
     </div>
     <div>
         <?php
