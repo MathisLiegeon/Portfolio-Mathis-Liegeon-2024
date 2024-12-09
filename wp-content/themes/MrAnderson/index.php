@@ -220,7 +220,7 @@ get_header();
                 <h2>à propos </h2>
                 <h2>de moi</h2>
             </span>
-            <p class="about-text hidden-to-right">Je m’appelle Mathis Liegeon, je suis étudiant au département MMI à l’IUT de Montbéliard. J’étudie le design, le développement et la communication. Mais ce que je préfère par-dessus tout, c’est la création et le design graphique. Je suis intéressé par les arts depuis des années et j’aime créer des visuels et explorer dans le but de trouver ma propre identité. Aussi, en complément du design j’aime le d”éveloppement.</p>
+            <p class="about-text hidden-to-right">Je m’appelle <strong>Mathis Liegeon</strong>, je suis étudiant au<strong> département MMI à l’IUT de Montbéliard </strong>. J’étudie le design, le développement et la communication. Mais ce que je préfère par-dessus tout, c’est la création et le design graphique. Je suis intéressé par les arts depuis des années et j’aime créer des visuels et explorer dans le but de trouver ma propre identité. Aussi, en complément du design j’aime le d”éveloppement.</p>
         </div>
         <div class="about-skills">
             <h4 class="hidden-to-bottom-hard">Je maitrise</h4>

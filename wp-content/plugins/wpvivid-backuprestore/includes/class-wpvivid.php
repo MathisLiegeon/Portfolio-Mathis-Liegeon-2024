@@ -325,7 +325,7 @@ class WPvivid
     {
         require_once WPVIVID_PLUGIN_DIR . '/includes/class-wpvivid-i18n.php';
 		$plugin_i18n = new WPvivid_i18n();
-        add_action('plugins_loaded',array( $plugin_i18n,'load_plugin_textdomain'));
+        add_action('init',array( $plugin_i18n,'load_plugin_textdomain'));
 	}
 
     public function pre_add_remote($remote,$id)

@@ -45,7 +45,7 @@ class WPvivid_Backup_2
     public function exclude_plugins($exclude_plugins)
     {
         $exclude_plugins[]='wpvivid-backuprestore';
-        $exclude_plugins[]='wp-cerber';
+        //$exclude_plugins[]='wp-cerber';
         $exclude_plugins[]='.';
         $exclude_plugins[]='wpvivid-backup-pro';
         $exclude_plugins[]='wpvividdashboard';
@@ -1815,27 +1815,20 @@ class WPvivid_Backup_2
         $exclude_default[13]['path'] = WP_CONTENT_DIR.'/'.'Dropbox_Backup';
         //$exclude_default[14]['type'] = 'folder';
         //$exclude_default[14]['path'] = WP_CONTENT_DIR.'/'.'mu-plugins';
-        $exclude_default[15]['type'] = 'file';
-        $exclude_default[15]['path'] = WP_CONTENT_DIR.'/'.'mysql.sql';  //mysql
-
-        //
+        $exclude_default[15]['type'] = 'folder';
+        $exclude_default[15]['path'] = WP_CONTENT_DIR.'/'.'backups-dup-pro';    // duplicator backup directory
         $exclude_default[16]['type'] = 'folder';
-        $exclude_default[16]['path'] = WP_CONTENT_DIR.'/'.'cache';
-
+        $exclude_default[16]['path'] = WP_CONTENT_DIR.'/'.'backup-migration';
         $exclude_default[17]['type'] = 'folder';
-        $exclude_default[17]['path'] = WP_CONTENT_DIR.'/'.'wpvivid_uploads';
-
+        $exclude_default[17]['path'] = WP_CONTENT_DIR.'/'.'backups-dup-lite';
         $exclude_default[18]['type'] = 'folder';
-        $exclude_default[18]['path'] = WP_CONTENT_DIR.'/'.'WPvivid_Uploads';
-
-        $exclude_default[19]['type'] = 'folder';
-        $exclude_default[19]['path'] = WP_CONTENT_DIR.'/'.'backups-dup-pro';    // duplicator backup directory
-
+        $exclude_default[18]['path'] = WP_PLUGIN_DIR.'/'.'wp-cerber';
+        $exclude_default[19]['type'] = 'file';
+        $exclude_default[19]['path'] = WP_CONTENT_DIR.'/'.'mysql.sql';  //mysql
         $exclude_default[20]['type'] = 'folder';
-        $exclude_default[20]['path'] = WP_CONTENT_DIR.'/'.'backup-migration';
-
+        $exclude_default[20]['path'] = WP_CONTENT_DIR.'/'.'wpvivid_uploads';
         $exclude_default[21]['type'] = 'folder';
-        $exclude_default[21]['path'] = WP_CONTENT_DIR.'/'.'backups-dup-lite';
+        $exclude_default[21]['path'] = WP_CONTENT_DIR.'/'.'WPvivid_Uploads';
 
         if(!empty($exclude_default))
         {

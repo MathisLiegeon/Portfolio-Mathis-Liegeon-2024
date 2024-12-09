@@ -446,7 +446,6 @@ class WPvivid_Dropbox extends WPvivid_Remote
                             $tmp_options['expires_in'] = sanitize_text_field($_POST['expires_in']);
                             $tmp_options['refresh_token'] = base64_encode(sanitize_text_field($_POST['refresh_token']));
                             $tmp_options['is_encrypt'] = 1;
-                            file_put_contents(WP_CONTENT_DIR.DIRECTORY_SEPARATOR.'dropbox_update.txt', '1'.PHP_EOL, FILE_APPEND);
                             set_transient('dropbox_auth_id', $tmp_options, 900);
                         }
                         $this->add_remote=true;

@@ -136,3 +136,7 @@ h5 {
 textarea {
   resize: none;
 }
+
+strong {
+  font-weight: 300;
+}

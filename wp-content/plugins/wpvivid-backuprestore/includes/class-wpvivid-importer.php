@@ -1344,7 +1344,7 @@ class WPvivid_media_importer
 
     private function replace_row_data($old_data)
     {
-        $unserialize_data = @unserialize($old_data);
+        $unserialize_data = @unserialize($old_data, array('allowed_classes' => false));
         if($unserialize_data===false)
         {
             $old_data=$this->replace_string($old_data);
@@ -1387,7 +1387,7 @@ class WPvivid_media_importer
     {
         if(is_string($data))
         {
-            $serialize_data =@unserialize($data);
+            $serialize_data =@unserialize($data, array('allowed_classes' => false));
             if($serialize_data===false)
             {
                 $data=$this->replace_string($data);

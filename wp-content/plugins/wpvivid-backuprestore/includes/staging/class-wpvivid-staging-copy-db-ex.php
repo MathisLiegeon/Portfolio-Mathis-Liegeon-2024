@@ -1101,7 +1101,7 @@ class WPvivid_Staging_Copy_DB
 
     public function replace_row_data($old_data)
     {
-        $unserialize_data = @unserialize($old_data);
+        $unserialize_data = @unserialize($old_data, array('allowed_classes' => false));
         if($unserialize_data===false)
         {
             $old_data=$this->replace_string_v2($old_data);
@@ -1117,7 +1117,7 @@ class WPvivid_Staging_Copy_DB
 
     private function replace_serialize_data($data,$serialized = false)
     {
-        if(is_serialized( $data ) && ( $serialize_data = @unserialize( $data ) ) !== false)
+        if(is_serialized( $data ) && ( $serialize_data = @unserialize( $data, array('allowed_classes' => false) ) ) !== false)
         {
             $data=$this->replace_serialize_data($serialize_data,true);
         }

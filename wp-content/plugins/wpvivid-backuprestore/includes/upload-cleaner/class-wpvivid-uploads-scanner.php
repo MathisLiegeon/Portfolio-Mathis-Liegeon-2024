@@ -797,7 +797,7 @@ class WPvivid_Uploads_Scanner
             }
             else if ( is_serialized( $meta ) )
             {
-                $decoded = @unserialize( $meta );
+                $decoded = @unserialize( $meta, array('allowed_classes' => false) );
                 if ( is_array( $decoded ) )
                 {
                     $this->array_to_ids_or_urls( $decoded, $postmeta_images_ids, $postmeta_images_urls );
@@ -828,7 +828,7 @@ class WPvivid_Uploads_Scanner
             }
             else if ( is_serialized( $meta ) )
             {
-                $decoded = @unserialize( $meta );
+                $decoded = @unserialize( $meta, array('allowed_classes' => false) );
                 if ( is_array( $decoded ) )
                 {
                     $this->array_to_ids_or_urls( $decoded, $postmeta_images_ids, $postmeta_images_urls );
@@ -860,7 +860,7 @@ class WPvivid_Uploads_Scanner
             }
             else if ( is_serialized( $meta ) )
             {
-                $decoded = @unserialize( $meta );
+                $decoded = @unserialize( $meta, array('allowed_classes' => false) );
                 if ( is_array( $decoded ) )
                 {
                     $this->array_to_ids_or_urls( $decoded, $postmeta_images_ids, $postmeta_images_urls );
@@ -890,7 +890,7 @@ class WPvivid_Uploads_Scanner
             }
             else if ( is_serialized( $meta ) )
             {
-                $decoded = @unserialize( $meta );
+                $decoded = @unserialize( $meta, array('allowed_classes' => false) );
                 if ( is_array( $decoded ) )
                 {
                     $this->array_to_ids_or_urls( $decoded, $postmeta_images_ids, $postmeta_images_urls );
@@ -920,7 +920,7 @@ class WPvivid_Uploads_Scanner
             }
             else if ( is_serialized( $meta ) )
             {
-                $decoded = @unserialize( $meta );
+                $decoded = @unserialize( $meta, array('allowed_classes' => false) );
                 if ( is_array( $decoded ) )
                 {
                     $this->array_to_ids_or_urls( $decoded, $postmeta_images_ids, $postmeta_images_urls );
@@ -950,7 +950,7 @@ class WPvivid_Uploads_Scanner
             }
             else if ( is_serialized( $meta ) )
             {
-                $decoded = @unserialize( $meta );
+                $decoded = @unserialize( $meta, array('allowed_classes' => false) );
                 if ( is_array( $decoded ) )
                 {
                     $this->array_to_ids_or_urls( $decoded, $postmeta_images_ids, $postmeta_images_urls );
@@ -980,7 +980,7 @@ class WPvivid_Uploads_Scanner
             }
             else if ( is_serialized( $meta ) )
             {
-                $decoded = @unserialize( $meta );
+                $decoded = @unserialize( $meta, array('allowed_classes' => false) );
                 if ( is_array( $decoded ) )
                 {
                     $this->array_to_ids_or_urls( $decoded, $postmeta_images_ids, $postmeta_images_urls );
@@ -1010,7 +1010,7 @@ class WPvivid_Uploads_Scanner
             }
             else if ( is_serialized( $meta ) )
             {
-                $decoded = @unserialize( $meta );
+                $decoded = @unserialize( $meta,array('allowed_classes' => false) );
                 if ( is_array( $decoded ) )
                 {
                     $this->array_to_ids_or_urls( $decoded, $postmeta_images_ids, $postmeta_images_urls );

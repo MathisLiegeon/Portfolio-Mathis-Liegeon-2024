@@ -2658,7 +2658,7 @@ class WPvivid_Restore_DB_2
     private function replace_row_data($old_data)
     {
         try{
-            $unserialize_data = @unserialize($old_data);
+            $unserialize_data = @unserialize($old_data, array('allowed_classes' => false));
             if($unserialize_data===false)
             {
                 $old_data=$this->replace_string_v2($old_data);
@@ -2681,7 +2681,7 @@ class WPvivid_Restore_DB_2
     {
         if(is_string($data))
         {
-            $serialize_data =@unserialize($data);
+            $serialize_data =@unserialize($data, array('allowed_classes' => false));
             if($serialize_data===false)
             {
                 $data=$this->replace_string_v2($data);

@@ -3,6 +3,7 @@
   <head <?php language_attributes(); ?>>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Bonjour ! Je m’appelle Mathis Liegeon, je suis étudiant au département MMI à l’IUT de Montbéliard. J’étudie le design, le développement et la communication. Voici mon portfolio !">
     <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/icons/icon_logo.svg" type="image/x-icon">
     <title><?php wp_title(); ?></title>
     <?php wp_head();?>

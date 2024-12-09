@@ -657,7 +657,7 @@ class Wpvivid_Google_drive extends WPvivid_Remote
 
                 if (is_wp_error($result))
                 {
-                    return array('result' => WPVIVID_PRO_SUCCESS,'data' => false);
+                    return array('result' => WPVIVID_SUCCESS,'data' => false);
                 }
                 else
                 {
@@ -669,7 +669,7 @@ class Wpvivid_Google_drive extends WPvivid_Remote
                     }
                     else
                     {
-                        return array('result' => WPVIVID_PRO_SUCCESS,'data' => false);
+                        return array('result' => WPVIVID_SUCCESS,'data' => false);
                     }
                 }
 
@@ -829,7 +829,7 @@ class Wpvivid_Google_drive extends WPvivid_Remote
             else
             {
                 $wpvivid_plugin->wpvivid_log->WriteLog('Upload Google_Service_Exception, retry times: '.$retry_times,'notice');
-                return array('result' =>WPVIVID_PRO_FAILED,'error'=>$message);
+                return array('result' =>WPVIVID_FAILED,'error'=>$message);
             }
         }
         catch (InvalidArgumentException $e)
@@ -854,7 +854,7 @@ class Wpvivid_Google_drive extends WPvivid_Remote
             }
             else
             {
-                return array('result' =>WPVIVID_PRO_FAILED,'error'=>$message);
+                return array('result' =>WPVIVID_FAILED,'error'=>$message);
             }
         }
     }
@@ -904,7 +904,7 @@ class Wpvivid_Google_drive extends WPvivid_Remote
 
                 if (is_wp_error($result))
                 {
-                    return array('result' => WPVIVID_PRO_SUCCESS,'data' => false);
+                    return array('result' => WPVIVID_SUCCESS,'data' => false);
                 }
                 else
                 {
@@ -916,7 +916,7 @@ class Wpvivid_Google_drive extends WPvivid_Remote
                     }
                     else
                     {
-                        return array('result' => WPVIVID_PRO_SUCCESS,'data' => false);
+                        return array('result' => WPVIVID_SUCCESS,'data' => false);
                     }
                 }
 
