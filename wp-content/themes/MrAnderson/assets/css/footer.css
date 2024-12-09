@@ -4,6 +4,8 @@
   width: 100svw;
   place-content: center;
   align-items: center;
+  border-top: 1px solid var(--primary);
+
 }
 
 .footer-wrapper {
@@ -12,7 +14,6 @@
   grid-template-columns: repeat(6, 100px);
   border-right: 1px solid var(--primary);
   position: relative;
-  border-top: 1px solid var(--primary);
 }
 .footer-wrapper::before {
   content: "";
@@ -22,6 +23,15 @@
   height: 100%;
   background-color: var(--primary);
   transform: translateX(100px);
+}
+.footer-wrapper::AFTER {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  background-color: var(--primary);
+  transform: translateX(-99px);
 }
 
 .body-wrapper .footer-wrapper {

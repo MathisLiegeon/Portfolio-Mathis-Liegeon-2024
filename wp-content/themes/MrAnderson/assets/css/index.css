@@ -37,7 +37,7 @@
 /* ABOUT */
 .about {
   display: grid;
-  grid-template-columns: 3fr 2fr;
+  grid-template-columns: 1fr;
   place-content: center;
   align-items: end;
 
@@ -48,18 +48,34 @@
   display: flex;
   flex-direction: column;
   gap: 4rem;
-  margin: 0 5rem;
+  margin: 0 2rem;
   align-self: center;
 }
+
+@media screen and (min-width: 850px) {
+  .about-content {
+    margin: 0 5rem;
+  }
+}
+
 
 .about-title {
   display: flex;
   flex-direction: column;
+  font-size: 100px;
 }
 
 .about-img-container {
-  display: flex;
+  display: none;
   align-items: end;
+}
+@media screen and (min-width: 700px) {
+  .about-img-container {
+    display: flex;
+  }
+  .about {
+    grid-template-columns: 3fr 2fr;
+  }
 }
 .about-img {
   width: 100%;
@@ -163,6 +179,8 @@
 }
 .vision > img {
   width: 100svw;
+  min-height: 100px;
+  object-fit: cover;
   z-index: 2;
 }
 
@@ -188,6 +206,7 @@
   border-radius: 100%;
   width: 50svw;
   height: 50svw;
+  display: none;
 }
 
 .vision-content > h2 {
@@ -195,10 +214,22 @@
 }
 
 .vision-content > p {
-  width: 40%;
+  width: 70%;
   font-size: clamp(0.8rem, 1.2rem, 1.3rem);
   font-weight: lighter;
 }
+
+@media screen and (min-width: 800px) {
+  .vision-content > p {
+    width: 40%;
+  }
+}
+@media screen and (min-width: 600px) {
+  .vision-content::after  {
+    display: block;
+  }
+}
+
 
 /* PASSIONS */
 /* main */
@@ -466,8 +497,15 @@
 /* CAROUSSEL */
 .music {
   width: 100%;
-  margin: 10rem 0 15rem 0;
+  margin: 10rem 0 5rem 0;
 }
+
+@media screen and (min-width: 850px) {
+  .music {
+    margin: 10rem 0 15rem 0;
+  }
+}
+
 .music-header {
   padding: 4rem 2rem;
   display: flex;

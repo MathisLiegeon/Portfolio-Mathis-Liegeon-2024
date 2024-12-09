@@ -13,7 +13,7 @@
   --base-weight: 100;
   --main-title-font: "Italiana", sans-serif;
   /* --main-title-size: 6rem; */
-  --main-title-size: 6svw;
+  --main-title-size: 4rem;
   --main-title-weight: 200;
   --secondary-title-font: "Italiana", sans-serif;
   --secondary-title-size: 4rem;
@@ -104,6 +104,11 @@ h2 {
 }
 h2 {
   margin: 0.5rem;
+}
+@media screen and (min-width: 800px) {
+  h2 {
+    font-size: 6rem;
+  }
 }
 h3 {
   font-family: var(--secondary-title-font);

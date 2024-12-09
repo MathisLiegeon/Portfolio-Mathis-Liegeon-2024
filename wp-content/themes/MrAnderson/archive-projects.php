@@ -19,7 +19,11 @@ $query->posts = $posts;
 get_header();
 
 $counter = 0;
+?>
 
+<h2 class="projects-mobile-header">MES PROJETS</h2>
+
+<?php
 echo '<div class="projects-container">';
 echo '<div class="projects-wrapper">';
 
