@@ -58,7 +58,6 @@
   }
 }
 
-
 .about-title {
   display: flex;
   flex-direction: column;
@@ -225,11 +224,10 @@
   }
 }
 @media screen and (min-width: 600px) {
-  .vision-content::after  {
+  .vision-content::after {
     display: block;
   }
 }
-
 
 /* PASSIONS */
 /* main */
@@ -260,8 +258,15 @@
   height: 100vh;
   overflow-x: scroll;
   overflow-y: hidden;
-  scroll-snap-type: x proximity; /* Ensure this is on the parent container */
+  scroll-snap-type: x proximity;
   margin-top: 200px;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  z-index: 100000;
 }
 
 .game-outer-wrapper {
@@ -273,64 +278,73 @@
   overflow-x: hidden;
   position: absolute;
   left: 0;
-  scroll-snap-type: y mandatory; /* Ensure this is on the parent container */
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  /* scroll-snap-type: y mandatory; */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  background-color: var(--background);
 }
 
 .game-outer-wrapper::-webkit-scrollbar {
-  display: none;  /* Chrome, Safari, and Opera */
+  display: none; /* Chrome, Safari, and Opera */
+}
+.game-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
 }
 
 .game-wrapper {
   display: flex;
   flex-direction: row;
-  width: 600vw;
+  width: calc(450px * 4 + 100vw);
   transform: rotate(90deg) translateY(-100vh);
   transform-origin: top left;
 }
 
 .game-slide {
-  width: 100vw;
   height: 100vh;
   scroll-snap-align: start;
   scroll-snap-stop: always;
+}
+.game-slide:not(:nth-child(1)) {
+  width: 450px;
+  padding: 60px 0;
+  border-left: 1px solid var(--primary);
+
   display: flex;
 }
-.game-slide * {
+.game-slide:nth-child(1) {
+  display: flex;
+  width: 100vw;
+
+  justify-content: center;
+  align-items: center;
+}
+.game-slide-bis {
+  align-items: end;
+}
+
+.game-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  height: 100%;
+  padding: 60px;
+}
+.game-slide .game-content img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.game-container {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+.game-text {
+  font-size: 1rem;
+  color: var(--primary);
 }
 
-.game-slide-1 {
-  background-color: red;
+.game-slide-1 h3 {
+  font-size: 6rem;
 }
-.game-slide-2 {
-  background-color: lightgreen;
-}
-.game-slide-3 {
-  background-color: cyan;
-}
-.game-slide-4 {
-  background-color: pink;
-}
-.game-slide-5 {
-  background-color: purple;
-}
-.game-slide-6 {
-  background-color: orange;
-}
-
-.game-outer-wrapper {
-  scroll-snap-type: y mandatory;
-}
-
-
-
 
 /* CAROUSSEL */
 .music {

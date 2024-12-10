@@ -122,69 +122,176 @@ document.addEventListener("alpine:init", () => {
     .querySelectorAll(".hidden-section-1-t")
     .forEach((el) => observerSvg.observe(el));
 
+  // ----------------- HORIZONTAL SCROLL------------------
+  document.addEventListener("DOMContentLoaded", function () {
+    const gameContainer = document.getElementById("game-container");
+    const gameOuterWrapper = document.querySelector(".game-outer-wrapper");
 
+    if (!gameContainer || !gameOuterWrapper) {
+      console.error("game-container or game-outer-wrapper not found");
+      return;
+    }
 
-
-    document.addEventListener('DOMContentLoaded', function() {
-      const gameContainer = document.getElementById('game-container');
-      const gameOuterWrapper = document.querySelector('.game-outer-wrapper');
-      
-      if (!gameContainer || !gameOuterWrapper) {
-        console.error('game-container or game-outer-wrapper not found');
-        return;
-      }
-
-      const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver(
+      (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
+            disableScroll();
             window.scrollTo({
-              top: entry.boundingClientRect.top + window.scrollY - (window.innerHeight / 2 - entry.boundingClientRect.height / 2),
-              behavior: 'smooth'
+              top:
+                entry.boundingClientRect.top +
+                window.scrollY -
+                (window.innerHeight / 2 - entry.boundingClientRect.height / 2),
+              behavior: "smooth",
             });
+            setTimeout(enableScroll, 3000);
           }
         });
-      }, { threshold: 0.01 });
-    
-      observer.observe(gameContainer);
-    
-      let isExitingCarousel = false;
-    
-      gameOuterWrapper.addEventListener('scroll', () => {
-        const scrollPosition = gameOuterWrapper.scrollTop;
-        const maxScroll = gameOuterWrapper.scrollHeight - gameOuterWrapper.clientHeight;
-    
-        if (scrollPosition === 0 || scrollPosition >= maxScroll) {
-          document.body.style.overflow = '';
-        } else {
-          document.body.style.overflow = 'hidden';
-        }
-      });
-    
-      gameContainer.addEventListener('wheel', (e) => {
-        const scrollPosition = gameOuterWrapper.scrollTop;
-        const maxScroll = gameOuterWrapper.scrollHeight - gameOuterWrapper.clientHeight;
-    
-        if ((scrollPosition === 0 && e.deltaY < 0) || (scrollPosition >= maxScroll && e.deltaY > 0)) {
-          if (!isExitingCarousel) {
-            isExitingCarousel = true;
-            document.body.style.overflow = '';
-            gameContainer.style.pointerEvents = 'none';
-    
-            if (scrollPosition === 0) {
-              window.scrollBy(0, -gameContainer.clientHeight - 100);
-            } else {
-              window.scrollBy(0, gameContainer.clientHeight + 100);
-            }
-    
-            setTimeout(() => {
-              gameContainer.style.pointerEvents = 'auto';
-              isExitingCarousel = false;
-            }, 1000);
-          }
-          e.preventDefault();
-        }
-      });
+      },
+      { threshold: 0.01 }
+    );
+
+    observer.observe(gameContainer);
+
+    let isExitingCarousel = false;
+
+    gameOuterWrapper.addEventListener("scroll", () => {
+      const scrollPosition = gameOuterWrapper.scrollTop;
+      const maxScroll =
+        gameOuterWrapper.scrollHeight - gameOuterWrapper.clientHeight;
+
+      if (scrollPosition === 0 || scrollPosition >= maxScroll) {
+        document.body.style.overflow = "";
+      } else {
+        document.body.style.overflow = "hidden";
+      }
     });
 
+    // Désactiver le défilement et l'inertie de défilement
+    function disableScroll() {
+      document.body.style.overflow = "hidden";
+      document.body.style.touchAction = "none"; // Désactiver l'inertie de défilement sur les appareils tactiles
+    }
 
+    // Réactiver le défilement et l'inertie de défilement
+    function enableScroll() {
+      document.body.style.overflow = "";
+      document.body.style.touchAction = ""; // Réactiver l'inertie de défilement sur les appareils tactiles
+    }
+
+    gameContainer.addEventListener("wheel", (e) => {
+      const scrollPosition = gameOuterWrapper.scrollTop;
+      const maxScroll =
+        gameOuterWrapper.scrollHeight - gameOuterWrapper.clientHeight;
+
+      if (
+        (scrollPosition === 0 && e.deltaY < 0) ||
+        (scrollPosition >= maxScroll && e.deltaY > 0)
+      ) {
+        if (!isExitingCarousel) {
+          isExitingCarousel = true;
+          document.body.style.overflow = "";
+          gameContainer.style.pointerEvents = "none";
+
+          if (scrollPosition === 0) {
+            window.scrollBy(0, -gameContainer.clientHeight - 100);
+          } else {
+            window.scrollBy(0, gameContainer.clientHeight + 100);
+          }
+
+          setTimeout(() => {
+            gameContainer.style.pointerEvents = "auto";
+            isExitingCarousel = false;
+          }, 1000);
+        }
+        e.preventDefault();
+      }
+    });
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    var gameContainer = document.getElementById("game-container");
+    var gameOuterWrapper = document.querySelector(".game-outer-wrapper");
+
+    if (!gameContainer || !gameOuterWrapper) {
+      console.error("game-container or game-outer-wrapper not found");
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            disableScroll();
+            window.scrollTo({
+              top:
+                entry.boundingClientRect.top +
+                window.scrollY -
+                (window.innerHeight / 2 - entry.boundingClientRect.height / 2),
+              behavior: "smooth",
+            });
+            setTimeout(enableScroll, 3000);
+          }
+        });
+      },
+      { threshold: 0.01 }
+    );
+
+    observer.observe(gameContainer);
+
+    let isExitingCarousel = false;
+
+    gameOuterWrapper.addEventListener("scroll", () => {
+      const scrollPosition = gameOuterWrapper.scrollTop;
+      const maxScroll =
+        gameOuterWrapper.scrollHeight - gameOuterWrapper.clientHeight;
+
+      if (scrollPosition === 0 || scrollPosition >= maxScroll) {
+        document.body.style.overflow = "";
+      } else {
+        document.body.style.overflow = "hidden";
+      }
+    });
+
+    // Désactiver le défilement et l'inertie de défilement
+    function disableScroll() {
+      document.body.style.overflow = "hidden";
+      document.body.style.touchAction = "none"; // Désactiver l'inertie de défilement sur les appareils tactiles
+    }
+
+    // Réactiver le défilement et l'inertie de défilement
+    function enableScroll() {
+      document.body.style.overflow = "";
+      document.body.style.touchAction = ""; // Réactiver l'inertie de défilement sur les appareils tactiles
+    }
+
+    gameContainer.addEventListener("wheel", (e) => {
+      const scrollPosition = gameOuterWrapper.scrollTop;
+      const maxScroll =
+        gameOuterWrapper.scrollHeight - gameOuterWrapper.clientHeight;
+
+      if (
+        (scrollPosition === 0 && e.deltaY < 0) ||
+        (scrollPosition >= maxScroll && e.deltaY > 0)
+      ) {
+        if (!isExitingCarousel) {
+          isExitingCarousel = true;
+          document.body.style.overflow = "";
+          gameContainer.style.pointerEvents = "none";
+
+          if (scrollPosition === 0) {
+            window.scrollBy(0, -gameContainer.clientHeight - 100);
+          } else {
+            window.scrollBy(0, gameContainer.clientHeight + 100);
+          }
+
+          setTimeout(() => {
+            gameContainer.style.pointerEvents = "auto";
+            isExitingCarousel = false;
+          }, 1000);
+        }
+        e.preventDefault();
+      }
+    });
+  });
 });
