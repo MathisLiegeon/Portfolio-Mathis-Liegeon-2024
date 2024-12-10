@@ -26,6 +26,11 @@ function enqueue_custom_scripts() {
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
 
+function enqueue_scroll_animation_script() {
+    wp_enqueue_script('custom-scroll-animation', get_template_directory_uri() . '/assets/js/scroll-animation.js', array(), null, true);
+}
+add_action('wp_enqueue_scripts', 'enqueue_scroll_animation_script');
+
 //ADD CSS
 function enqueue_custom_styles() {
   wp_enqueue_style('main-css', get_template_directory_uri() . '/style.css', array(), null, 'all');

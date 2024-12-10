@@ -5,33 +5,13 @@
   place-content: center;
   align-items: center;
   border-top: 1px solid var(--primary);
-
 }
 
 .footer-wrapper {
   width: 100svw;
   display: grid;
   grid-template-columns: repeat(6, 100px);
-  border-right: 1px solid var(--primary);
   position: relative;
-}
-.footer-wrapper::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  width: 1px;
-  height: 100%;
-  background-color: var(--primary);
-  transform: translateX(100px);
-}
-.footer-wrapper::AFTER {
-  content: "";
-  position: absolute;
-  right: 0;
-  width: 1px;
-  height: 100%;
-  background-color: var(--primary);
-  transform: translateX(-99px);
 }
 
 .body-wrapper .footer-wrapper {
@@ -41,7 +21,6 @@
 .body-wrapper .footer-wrapper::before {
   display: none;
 }
-
 
 /* Content */
 .footer-wrapper > div {
@@ -79,9 +58,51 @@
 }
 
 .footer-terms {
-  position: absolute;
-  bottom: 0.5rem;
-  left: 50%;
-  transform: translateX(-50%);
   color: var(--primary);
+  grid-column: 4 / 5;
+  align-self: end;
+  margin-bottom: 0.5rem;
+  margin-left: 0.5rem;
+  position: absolute;
+}
+
+@media screen and (min-width: 1024px) {
+  .footer-terms {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 0;
+    align-self: auto;
+    grid-column: unset;
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .footer-wrapper {
+    border-right: 1px solid var(--primary);
+  }
+  .footer-wrapper::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 1px;
+    height: 100%;
+    background-color: var(--primary);
+    transform: translateX(100px);
+  }
+  .footer-wrapper::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 1px;
+    height: 100%;
+    background-color: var(--primary);
+    transform: translateX(-99px);
+  }
+  .footer-terms {
+    grid-column: 5 / span 3;
+    position: initial;
+    margin: 0;
+  }
 }

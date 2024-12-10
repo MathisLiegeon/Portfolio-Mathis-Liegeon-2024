@@ -282,13 +282,13 @@ get_header();
           <div class="game-slide game-slide-2">
             <span class="game-content">
               <img class="game-img-1" src="<?php echo get_template_directory_uri();?>/assets/img/img_games-1.webp " alt="Image du jeux vidéo Titanfall2">
-              <span class="game-text game-text-1">Comme beaucoup de gens avant moi, j’ai été acompagné toute mon adolescence par tout types de jeux vidéos. </span>
+              <span class="game-text game-text-1">Comme beaucoup de gens avant moi, j'ai été accompagné toute mon adolescence par tous types de jeux vidéo. </span>
             </span>
           </div>
 
           <div class="game-slide game-slide-bis game-slide-3">
-            <span class="game-content">
-              <span class="game-text game-text-2">Mais certains restent à tout jamais gravé dans nos mémoires, et sont et seront une expérience unique pour chacun d’entre nous grâce au travail titanesque des designers et des developpeurs.</span>
+            <span class="game-content game-content-bis">
+              <span class="game-text game-text-2">Mais certains restent à tout jamais gravés dans nos mémoires, et sont et seront une expérience unique pour chacun d'entre nous grâce au travail titanesque des designers et des développeurs.</span>
               <img class="game-img-2" src="<?php echo get_template_directory_uri();?>/assets/img/img_games-2.webp " alt="Image du jeux vidéo Outer Wilds">
             </span>
           </div>
@@ -296,13 +296,13 @@ get_header();
           <div class="game-slide game-slide-4">
             <span class="game-content">
               <img class="game-img-3" src="<?php echo get_template_directory_uri();?>/assets/img/img_games-3.webp " alt="Image du jeux vidéo Minecraft">
-              <span class="game-text game-text-3">Voici quelques uns des jeux qui m’ont inspiré et qui m’ont montré que parfois, un jeu vidéo, n’est pas seulement undiversitssemenmais  une  vraie expérience.</span>
+              <span class="game-text game-text-3">Voici quelques-uns des jeux qui m'ont inspiré et qui m'ont montré que parfois, un jeu vidéo n'est pas seulement un divertissement mais une vraie expérience.</span>
             </span>
           </div>
 
           <div class="game-slide game-slide-bis game-slide-5">
-            <span class="game-content">
-              <span class="game-text game-text-4">Une expérience réflechie et designée directement pour le joueur.</span>
+            <span class="game-content game-content-bis">
+              <span class="game-text game-text-4">Une expérience réfléchie et designée directement pour le joueur.</span>
               <img class="game-img-4" src="<?php echo get_template_directory_uri();?>/assets/img/img_games-4.webp " alt="Image du jeux vidéo AC: Black Flag">
             </span>
           </div>
