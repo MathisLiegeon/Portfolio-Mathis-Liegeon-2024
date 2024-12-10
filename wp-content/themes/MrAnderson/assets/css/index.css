@@ -286,7 +286,7 @@
 }
 @media screen and (min-width: 550px) {
   .passions-header > * {
-    font-size: var(--main-title-size);
+    font-size: 7svw;
   }
 }
 
