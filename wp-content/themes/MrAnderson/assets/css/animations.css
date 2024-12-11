@@ -189,4 +189,8 @@
 }
 
 
-/* SCROLL */
+/* RESPONSIVE */
+.hero-text-mobile-1 {
+  animation-delay: 400ms;
+  transform: translateX(-140px);
+}

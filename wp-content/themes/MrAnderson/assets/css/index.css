@@ -590,5 +590,5 @@
 }
 
 .section-1-mobile-line {
-  transform: scaleX(4) translateX(-50%);
+  transform: scaleX(4) translateX(-50px);
 }
