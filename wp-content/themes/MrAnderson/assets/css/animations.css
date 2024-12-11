@@ -108,10 +108,10 @@
 }
 
 .hero-text {
-  fill: red;
   animation: textAnimation 1s ease-in-out 1 forwards;
   transform: translateX(-420px);
 }
+
 
 @keyframes textAnimation {
   0% {
@@ -134,7 +134,18 @@
 .hero-letter-3 {
   animation-delay: 200ms;
 }
-
+.hero-text-mobile {
+  animation: MobileTextAnimation 1s ease-in-out 1 forwards;
+  transform: translateX(-100px);
+}
+@keyframes MobileTextAnimation {
+  0% {
+    transform: translateX(-100px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 @keyframes lTextAnimation {
   0% {
     transform: translateX(-330px);

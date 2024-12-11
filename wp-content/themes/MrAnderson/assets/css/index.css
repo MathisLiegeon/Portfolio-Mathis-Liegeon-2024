@@ -279,7 +279,6 @@
   border-left: 0;
   margin: 0;
   font-size: 2.5rem;
-
 }
 .passions-header > *:last-child {
   border-top: 0;
@@ -306,7 +305,6 @@
 
   z-index: 100000;
   display: none;
-
 }
 @media screen and (min-width: 850px) {
   .game-container {
@@ -563,4 +561,34 @@
     border-right: 1px solid var(--primary);
     border-bottom: 0;
   }
+}
+
+/* RESPONSIVE */
+.hero-desktop,
+.section-1-desktop {
+  display: none;
+}
+.hero-mobile {
+  padding: 0;
+  margin: 0;
+  transform: none;
+}
+.section-1-mobile {
+  margin: 4rem 0;
+}
+
+@media screen and (min-width: 600px) {
+  .hero-desktop,
+  .section-1-desktop {
+    display: block;
+  }
+  .hero-mobile,
+  .section-1-mobile {
+    display: none;
+  }
+
+}
+
+.section-1-mobile-line {
+  transform: scaleX(4) translateX(-50%);
 }
